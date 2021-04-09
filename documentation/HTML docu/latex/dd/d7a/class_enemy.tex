@@ -1,0 +1,205 @@
+\hypertarget{class_enemy}{}\doxysection{Enemy Class Reference}
+\label{class_enemy}\index{Enemy@{Enemy}}
+
+
+{\ttfamily \#include $<$Enemy.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_enemy_a5f7e907054ffa49efe2bda6b5a8e733e}{back\+And\+Forth}} (bool)
+\begin{DoxyCompactList}\small\item\em Allows for the left and right movement of the enemy @parm bool -\/ True if moving left, false if right. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_enemy_ae0a961c65358670b6a901a9f4acc9b04}{Enemy}} (int, int)
+\begin{DoxyCompactList}\small\item\em Default constructor, sets up the enemy starting position @parm int -\/ The starting x position @parm int -\/ The starting y position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_enemy_a5ee1716d967cb6ae9e168b233e8897e7}{get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Returns the x position of the enemy @parm Nothing. \end{DoxyCompactList}\item 
+std\+::vector$<$ Circle\+Shape $>$ \mbox{\hyperlink{class_enemy_a36e2b7c62058e21a1572777f3288e2a3}{get\+Projectiles}} ()
+\item 
+Circle\+Shape \mbox{\hyperlink{class_enemy_a03e8f2bdd1eb0fcc8d840958d51b3c68}{get\+Shape}} ()
+\begin{DoxyCompactList}\small\item\em Returns the shape of the enemies @parm Nothing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_a9a398f8d12234f02563b27440aff7891}{move}} ()
+\begin{DoxyCompactList}\small\item\em Allows for the movement of the enemies @parm Nothing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_ab526cfaf13910e15ca1e5e84ef230dd1}{Shoot}} ()
+\begin{DoxyCompactList}\small\item\em Allows for the enemies to shoot @parm Nothing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_a9430f6385c792b92899139085d997fb2}{update\+Projectiles}} (int)
+\begin{DoxyCompactList}\small\item\em Updates the projectiles that the enemies shoot @parm int -\/ The projectile in the vector to update. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_enemy_ac0eec4755e28c02688065f9657150ac3}{$\sim$\+Enemy}} ()
+\begin{DoxyCompactList}\small\item\em Default deconstructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Circle\+Shape \mbox{\hyperlink{class_enemy_a77401e4a43aaaf9dd6d89ac150db4909}{projectile}}
+\begin{DoxyCompactList}\small\item\em The shape of the enemies projectiles. \end{DoxyCompactList}\item 
+std\+::vector$<$ Circle\+Shape $>$ \mbox{\hyperlink{class_enemy_a5c5d51e68617924a761f682e8ad1ac13}{projectiles}}
+\begin{DoxyCompactList}\small\item\em The vector containing the projectiles. \end{DoxyCompactList}\item 
+Circle\+Shape \mbox{\hyperlink{class_enemy_a9a93f61a14fa87f8949737686142c95a}{shape}}
+\begin{DoxyCompactList}\small\item\em The shape of the enemy. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_enemy_a115c25a4aace86eb71a73ab5e7d3c73b}{startX}}
+\begin{DoxyCompactList}\small\item\em the starting values of the enemies \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_enemy_adb56b3adfc24e6e46a0de990f74672e8}{startY}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_enemy_ae0a961c65358670b6a901a9f4acc9b04}\label{class_enemy_ae0a961c65358670b6a901a9f4acc9b04}} 
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{Enemy()}{Enemy()}}
+{\footnotesize\ttfamily Enemy\+::\+Enemy (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Default constructor, sets up the enemy starting position @parm int -\/ The starting x position @parm int -\/ The starting y position. 
+
+\mbox{\Hypertarget{class_enemy_ac0eec4755e28c02688065f9657150ac3}\label{class_enemy_ac0eec4755e28c02688065f9657150ac3}} 
+\index{Enemy@{Enemy}!````~Enemy@{$\sim$Enemy}}
+\index{````~Enemy@{$\sim$Enemy}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{$\sim$Enemy()}{~Enemy()}}
+{\footnotesize\ttfamily Enemy\+::$\sim$\+Enemy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default deconstructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_enemy_a5f7e907054ffa49efe2bda6b5a8e733e}\label{class_enemy_a5f7e907054ffa49efe2bda6b5a8e733e}} 
+\index{Enemy@{Enemy}!backAndForth@{backAndForth}}
+\index{backAndForth@{backAndForth}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{backAndForth()}{backAndForth()}}
+{\footnotesize\ttfamily void Enemy\+::back\+And\+Forth (\begin{DoxyParamCaption}\item[{bool}]{left }\end{DoxyParamCaption})}
+
+
+
+Allows for the left and right movement of the enemy @parm bool -\/ True if moving left, false if right. 
+
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_enemy_a5ee1716d967cb6ae9e168b233e8897e7}\label{class_enemy_a5ee1716d967cb6ae9e168b233e8897e7}} 
+\index{Enemy@{Enemy}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily int Enemy\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the x position of the enemy @parm Nothing. 
+
+\begin{DoxyReturn}{Returns}
+int -\/ The original x position of the enemy 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_enemy_a36e2b7c62058e21a1572777f3288e2a3}\label{class_enemy_a36e2b7c62058e21a1572777f3288e2a3}} 
+\index{Enemy@{Enemy}!getProjectiles@{getProjectiles}}
+\index{getProjectiles@{getProjectiles}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{getProjectiles()}{getProjectiles()}}
+{\footnotesize\ttfamily std\+::vector$<$ Circle\+Shape $>$ Enemy\+::get\+Projectiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_enemy_a03e8f2bdd1eb0fcc8d840958d51b3c68}\label{class_enemy_a03e8f2bdd1eb0fcc8d840958d51b3c68}} 
+\index{Enemy@{Enemy}!getShape@{getShape}}
+\index{getShape@{getShape}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{getShape()}{getShape()}}
+{\footnotesize\ttfamily Circle\+Shape Enemy\+::get\+Shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the shape of the enemies @parm Nothing. 
+
+\begin{DoxyReturn}{Returns}
+Circle\+Shape -\/ The shape of the enemy 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_enemy_a9a398f8d12234f02563b27440aff7891}\label{class_enemy_a9a398f8d12234f02563b27440aff7891}} 
+\index{Enemy@{Enemy}!move@{move}}
+\index{move@{move}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Enemy\+::move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Allows for the movement of the enemies @parm Nothing. 
+
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_enemy_ab526cfaf13910e15ca1e5e84ef230dd1}\label{class_enemy_ab526cfaf13910e15ca1e5e84ef230dd1}} 
+\index{Enemy@{Enemy}!Shoot@{Shoot}}
+\index{Shoot@{Shoot}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{Shoot()}{Shoot()}}
+{\footnotesize\ttfamily void Enemy\+::\+Shoot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Allows for the enemies to shoot @parm Nothing. 
+
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_enemy_a9430f6385c792b92899139085d997fb2}\label{class_enemy_a9430f6385c792b92899139085d997fb2}} 
+\index{Enemy@{Enemy}!updateProjectiles@{updateProjectiles}}
+\index{updateProjectiles@{updateProjectiles}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{updateProjectiles()}{updateProjectiles()}}
+{\footnotesize\ttfamily void Enemy\+::update\+Projectiles (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Updates the projectiles that the enemies shoot @parm int -\/ The projectile in the vector to update. 
+
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_enemy_a77401e4a43aaaf9dd6d89ac150db4909}\label{class_enemy_a77401e4a43aaaf9dd6d89ac150db4909}} 
+\index{Enemy@{Enemy}!projectile@{projectile}}
+\index{projectile@{projectile}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{projectile}{projectile}}
+{\footnotesize\ttfamily Circle\+Shape Enemy\+::projectile\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The shape of the enemies projectiles. 
+
+\mbox{\Hypertarget{class_enemy_a5c5d51e68617924a761f682e8ad1ac13}\label{class_enemy_a5c5d51e68617924a761f682e8ad1ac13}} 
+\index{Enemy@{Enemy}!projectiles@{projectiles}}
+\index{projectiles@{projectiles}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{projectiles}{projectiles}}
+{\footnotesize\ttfamily std\+::vector$<$Circle\+Shape$>$ Enemy\+::projectiles\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The vector containing the projectiles. 
+
+\mbox{\Hypertarget{class_enemy_a9a93f61a14fa87f8949737686142c95a}\label{class_enemy_a9a93f61a14fa87f8949737686142c95a}} 
+\index{Enemy@{Enemy}!shape@{shape}}
+\index{shape@{shape}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{shape}{shape}}
+{\footnotesize\ttfamily Circle\+Shape Enemy\+::shape\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The shape of the enemy. 
+
+\mbox{\Hypertarget{class_enemy_a115c25a4aace86eb71a73ab5e7d3c73b}\label{class_enemy_a115c25a4aace86eb71a73ab5e7d3c73b}} 
+\index{Enemy@{Enemy}!startX@{startX}}
+\index{startX@{startX}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{startX}{startX}}
+{\footnotesize\ttfamily int Enemy\+::startX\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+the starting values of the enemies 
+
+\mbox{\Hypertarget{class_enemy_adb56b3adfc24e6e46a0de990f74672e8}\label{class_enemy_adb56b3adfc24e6e46a0de990f74672e8}} 
+\index{Enemy@{Enemy}!startY@{startY}}
+\index{startY@{startY}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{startY}{startY}}
+{\footnotesize\ttfamily int Enemy\+::startY\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+GALAGA/\+Galaga/\mbox{\hyperlink{_enemy_8h}{Enemy.\+h}}\item 
+C\+:/\+GALAGA/\+Galaga/\mbox{\hyperlink{_enemy_8cpp}{Enemy.\+cpp}}\end{DoxyCompactItemize}

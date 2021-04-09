@@ -1,0 +1,57 @@
+Works Cited
+
+Alex Wilhelm 
+
+Laser Sound 
+https://bigsoundbank.com/detail-1758-star-wars-blaster-2.html
+
+Galaga Theme Sound
+https://freesound.org/people/SgtPepperArc360/sounds/341484/
+
+Game Over Sound
+https://mixkit.co/free-sound-effects/game-over/
+
+Win Sound
+https://mixkit.co/free-sound-effects/win/
+
+Galaga Logo Image
+https://gamefabrique.com/games/galaga/
+
+Push Space Key Image
+https://www.gamesdatabase.org/media/msx/artwork-title-screen/galaga
+
+You Win Image (Screenshot of certain frame in video)
+https://www.shutterstock.com/video/clip-1023524665-80s-90s-videogame-animated-you-win-screen
+
+Game Over Image 
+https://www.threadless.com/designs/galaga-game-over
+
+Score Image (cropped from game screen in "HIGH SCORE")
+https://gamefabrique.com/games/galaga/
+
+Galaga Ship Image
+https://www.pinclipart.com/pindetail/iTioxxo_galaga-ship-clipart/
+
+Help With Displaying Images & colors
+https://www.youtube.com/watch?v=WFts4-62F6U
+https://www.youtube.com/watch?v=5wjktyu8hWY
+
+Help With Playing Sounds
+https://www.sfml-dev.org/tutorials/2.5/audio-sounds.php
+
+Help With Pressing Multiple Keys Down At Once (from Jesper Juhl, Re: Detect multiple keypress « Reply #5 on: June 09, 2014, 09:49:10 pm »)
+https://en.sfml-dev.org/forums/index.php?topic=15477.0
+
+Brandon Lefert
+
+SFML Dev Website
+https://www.sfml-dev.org/
+
+Ankeet Prasai
+
+Doxygen
+https://github.com/doxygen/doxygen
+
+
+
+

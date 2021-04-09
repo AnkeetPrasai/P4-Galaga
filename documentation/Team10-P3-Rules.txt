@@ -1,0 +1,19 @@
+###############################################################################
+##############################################################################
+#############################################################################
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   GALAGA RULES  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Objective of the game is to Shoot down all the enemy ships!
+
+~ Space ~ will start the GAME.
+~ Use the movement keys to move around, Either W, S, A, D or arrow keys.
+~ Use the Space bar to Shoot at the ships!
+
+Remember They have Weapons too! So watchout for those Projectiles!
+
+They have also been learning from human history and have taken a page from
+the japanese, so watchout for when they try to kazakage you! :)
+
+Destroying enemy ships will get you points while getting hit will make you lose 
+your lives.
