@@ -1,0 +1,16 @@
+Team 10 Project 3 Design Patterns Analysis
+
+For project three, we had to be creative in figuring out how to code our Galaga game as this was not something we were used to.
+Our team also picked up a new library in C++, SFML, that we had to get used to first. Because of the new coding abilities available,
+it was very important for us to figure out design patterns that would enable us to do more and to accomplish these goals more efficiently.
+We believe our project falls under a Behavioral design pattern instead of the Structural/Creational patterns as there is alot of examples
+within the object scope that we used that would be considered Behavioral. For instance, we have examples of Mediator as well as other types
+too like Chain of Responsibility. We did not really emphasize inheritance in our project as we had only a few classes, and they
+did their own completely seperate functions. However, as explained in the definition of Mediator on Slide 22 of the Design Patterns
+lecture, we defined an object that encapsulates how a set of objects interact. For example, our enemy class will create multiple different
+enemies as there is multiple "enemy spaceships" that the player must defeat. Each enemy will also act like the other enemies, following
+similar functions and member variables like if it has been destroyed or not. Just as the definition for mediator explains, our seperate
+enemy objects do not refer to each other explicitly, and their interaction is independent as one "spaceship" may be destroyed, but not the
+others. Other than Mediator within Behavioral, we also have instances of Chain of Responsibility as once again, our enemy class
+avoids coupling the sender of a request to its receiver by giving more than one object a chance to handle the request as the definition states.
+This can occur during a collision of the player's shot and an enemy getting hit.

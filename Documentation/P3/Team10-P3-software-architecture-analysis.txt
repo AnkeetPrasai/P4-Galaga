@@ -1,0 +1,24 @@
+Team 10 Project 3 Software Architecture Analysis
+
+For our third project, Galaga, there is a lot of different components that we will need
+to code. It is important that we figure out how we want to organize our code and what
+type of methods will be needed to progress on the project, revise it, and finally deal with
+maintenance on the project if we decide to expand in the future (which we will for project 4).
+After looking things over, we decided that our group would implement our project through a 
+Pipes-and-Filters Architecture system in which we prioritize simplicity, maintenance and reuse,
+and concurrent execution (added features can be created separately and work independently with 
+other features). An example of concurrent execution in our project would be us making different
+systems for allowing the player to move (up, down, left, right), shoot, and get hit. Another 
+component that uses concurrent execution is the enemy which does similar actions as the player
+in its own independent way (even independent from what the other enemies are doing). As shown on
+slide 26 of the Software Architecture lecture, the example illustrates that a keyboard input 
+(such as the up arrow, down arrow, left arrow, right arrow, etc... in our project) will call a program
+(ex. move player character) followed by another (ex. updates where the AI thinks the player is positioned)
+and on (ex. AI attempts to shoot back at player) and will display the output of the result. Our
+full project is based on this system and is therefore using the Pipes-and-Filters Architecture system.
+
+
+
+
+
+

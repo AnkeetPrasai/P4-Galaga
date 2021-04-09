@@ -1,0 +1,19 @@
+Team 10 Project 3 Design Paradigm Analysis
+
+For project three in which we decided to take on a Galaga remake, we found that the easiest way for us to code
+this game in an efficient yet practical way would be through using the C++ language as well as using SFML which
+allows us to print graphics on a window and update the screen without looking like the screen was constantly updating.
+We used Object-Oriented design in this project by setting up multiple classes for the structure of our code. For example,
+we have a “Player” and “Enemy” class that has their own respective files that come with them.  We didn’t set up any inheritance
+classes for this project, but it isn’t a requirement for the design type we chose, and it also would not assist significantly
+in the structure of how we approached the project. Inside our class structure, there is an example inside our player.h
+file, a part of our player class. We created multiple private and public members/attributes with both functions and variables
+that are just being stored. To prove that, here are four of our private members: int lives (stores amount of lives user
+has left), circleShape shape (creates a circle that will be displayed on sceen), circleShape projectile (creates another
+circle object), std::vector<CircleShape> projectiles (creates vector for our projectile system). Our player class also
+has its own constructor, destructor, and public members such as void Shoot() which is our function for dealing with
+the situation in which the player shoots a projectile at the enemy. Our methods in the program runs through these 
+defined objects and the functions that these objects can reach. If there were no instances of the objects we created,
+our game wouldn’t work and therefore is reliant on an object-orientated design. It is logical for that to be our design
+as C++ is a language that uses this concept heavily. If we used a different language such as C or Haskell, it could have
+been function-oriented design or aspect-oriented design if we were focusing more on documentation.

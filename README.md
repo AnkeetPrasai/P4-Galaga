@@ -1,2 +1,4 @@
-# EECS488-P3-GALAGA
-Welcome to GALAGA
+# EECS488-P4-GALAGA
+Welcome to GALAGA :)
+
+

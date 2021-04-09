@@ -1,0 +1,20 @@
+Initial Estimate of Project 3:
+
+(55 hours) by our 4 team members (est. 13.75 hours per person) as well as  meetings that last  hr throughout the project (2 hours total)
+(55 + 8 = 63 total hours) needed to accomplish a significant amount of goals:
+
+Creating a new repository and getting git set up on all of our devices, finding out a method of communication for our group, meeting
+to discuss where we are at in progression on the project, creating the new classes we 
+have for this project (Galaga, player, enemy, etc), creating new documentation both on the header files and making the new html file, filling out
+our personal hours documentation, and filling out all of the essays required. We have to create the logic for the game, movement patterns, and
+scoring system for Galaga.
+
+Extra hours also included for anticipated confusion on the project as well as checking and preparing our project for submission and the demo. 
+
+We anticipate doing all of this will take roughly 15.75 hours a person to be safe as a lot of code and planning has to be done for
+this project.
+
+
+Final Hours of Project 3 (51.75 hours):
+
+The project took a shorter amount of time than we expected but we ran into a lot of issues figuring out how to implement SMFL in general.
