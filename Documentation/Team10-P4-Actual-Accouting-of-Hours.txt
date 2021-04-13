@@ -1,5 +1,6 @@
 Alex Wilhelm:
 4/8: 1 hr - Project 4 Pre-Planning Meeting
+4/12: 1.5 hr - Organization rehaul, starting of test suite, updating person hours documentation
 hr total
 
 Ankeey Prasasi:
