@@ -1,0 +1,19 @@
+Initial Estimate of Project 4:
+
+(35 hours) by our 4 team members (est. 8.75 hours per person) as well as 2 meetings that last 1 hr throughout the project (8 hours total)
+(35 + 8 = 43 total hours) needed to accomplish a significant amount of goals:
+
+Creating a new repository and getting git set up on all of our devices, finding out a method of communication for our group, meeting
+to discuss where we are at in progression on the project, revising the classes we have for this project (Galaga, player, enemy, etc) to handle
+our new features, creating new documentation both on the header files and making the new html file, filling out our personal hours documentation,
+and filling out all of the essays required. We have to create additional logic for the game such as a scoring system that actually updates to a score
+screen in which the user can add information and compare their scores to others for Galaga.
+
+We also will be creating a test suite and video presentation in order to show off our project and show that the individual features of it work effectively.
+
+Extra hours also included for anticipated confusion on the project as well as checking and preparing our project for submission and the demo. 
+
+We anticipate doing all of this will take roughly 10.75 hours a person to be safe as a lot of code and planning has to be done for
+this project.
+
+Final Hours of Project 4 ():
