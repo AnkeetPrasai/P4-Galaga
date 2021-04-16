@@ -5,6 +5,41 @@
 using namespace sf;
 using namespace std;
 
+void LevelDisplay(int i)
+{
+    string i2 = to_string(i);
+    Text level;
+    Font font1;
+    if (!font1.loadFromFile("OriginTech personal use.ttf"))
+    {
+        return;
+    }
+
+    level.setStyle(Text::Bold);
+    level.setFont(font1);
+    level.setPosition(550, 360);
+    level.setCharacterSize(50);
+    level.setString("LEVEL " + i2);
+    display.window.draw(level);
+    display.window.display();
+    while (display.window.isOpen())
+    {
+        Event e;
+        // Checks for any input from user and it send it to event handler
+        while (display.window.pollEvent(e))
+        {
+            if (e.type == Event::KeyPressed)
+            {
+                if (e.key.code == Keyboard::Enter)
+                {
+                    display.window.clear();
+                    return;
+                }
+            }
+        }
+    }
+}
+
 void StartScreen()
 {
   sf::Texture galagaLogo;
@@ -206,6 +241,7 @@ int levelTwo(Player& p)
 
         music.play();
         music.stop();
+        LevelDisplay(2);
 
         vector<Enemy> enemies;
 
@@ -428,6 +464,8 @@ int levelOne()
 
     music.play();
     StartScreen();
+    display.window.clear();
+    LevelDisplay(1);
     music.stop();
 
     Player p;
