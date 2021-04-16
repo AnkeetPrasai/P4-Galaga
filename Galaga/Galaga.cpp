@@ -5,6 +5,94 @@
 using namespace sf;
 using namespace std;
 
+void TestSuite()
+{
+  cout << "Test 1: " << "Program detects if theme song is in file.\n";
+  if (music.openFromFile("GalagaTheme.ogg"))
+  {
+    cout << "PASSED TEST\n\n";
+  }
+  else
+  {
+    cout << "FAILED TEST\n\n";
+  }
+
+  cout << "Test 2: " << "Program detects if shoot sound is in file.\n";
+  if (music.openFromFile("Laser.ogg"))
+  {
+    cout << "PASSED TEST\n\n";
+  }
+  else
+  {
+    cout << "FAILED TEST\n\n";
+  }
+
+  cout << "Test 3: " << "Program detects if Galaga Theme Logo is in file.\n";
+  sf::Texture galagaLogo;
+  if (galagaLogo.loadFromFile("GalagaLogo.png"))
+  {
+    cout << "PASSED TEST\n\n";
+  }
+  else
+  {
+    cout << "FAILED TEST\n\n";
+  }
+
+  cout << "Test 4: " << "Program detects if Push Space Key Image is in file.\n";
+  sf::Texture pushSpaceKey;
+  if (pushSpaceKey.loadFromFile("pushSpaceKey.jpg"))
+  {
+    cout << "PASSED TEST\n\n";
+  }
+  else
+  {
+    cout << "FAILED TEST\n\n";
+  }
+
+  cout << "Test 5: " << "Program can detect player not moving.\n";
+  Player p;
+  Event e;
+  int endf = 0;
+  while (display.window.pollEvent(e) && endf == 0)
+  {
+    if (!(e.type == Event::KeyPressed))
+    {
+      if (!(e.key.code == Keyboard::A))
+      {
+        cout << "PASSED TEST\n\n";
+      }
+      else
+      {
+        cout << "FAILED TEST\n\n";
+      }
+    }
+    endf = 1;
+  }
+
+
+  cout << "Test 6: " << "Program can detect player 'AWSD' keyboard presses. \n";
+  while (display.window.isOpen() && ((endf == 0) || (endf == 1)))
+  {
+    while (display.window.pollEvent(e) && ((endf == 0) || (endf == 1)))
+    {
+      if ((e.type == Event::KeyPressed))
+      {
+        if ((e.key.code == Keyboard::A || e.key.code == Keyboard::W || e.key.code == Keyboard::S || e.key.code == Keyboard::D))
+        {
+          cout << "PASSED TEST\n\n";
+          endf = 2;
+        }
+        else
+        {
+          cout << "WRONG INPUT, TYPE one of the following letters: 'W' 'A 'S' 'D'\n\n";
+        }
+      }
+    }
+  }
+
+  cout << "Test 7: " << "Program can ... \n";
+}
+
 void StartScreen()
 {
   sf::Texture galagaLogo;
@@ -44,6 +132,9 @@ void StartScreen()
         {
           display.window.clear();
           return;
+        }
+        else if (e.key.code == Keyboard::Tab) {
+          TestSuite();
         }
       }
     }
@@ -381,19 +472,6 @@ int Play()
  return 0;
 }
 
-void TestSuite()
-{
-  int test1 = 0;
-  cout << "Test 1: " << "Program detects if user has won game.\n";
-  if (test1 == true)
-  {
-    cout << "PASSED TEST\n";
-  }
-  else
-  {
-    cout << "FAILED TEST\n";
-  }
-}
 
 int main()
 {
