@@ -1,5 +1,5 @@
-
 #include <iostream>
+#include <fstream>
 #include "Player.h"
 #include "Enemy.h"
 using namespace sf;
@@ -161,37 +161,104 @@ void WinScreen()
   }
 }
 
-void scoreScreen()
+void scoreScreen(Player & p)
 {
+    Font font1;
+    if (!font1.loadFromFile("OriginTech personal use.ttf"))
+    {
+        return;
+    }
+    
+    string score = to_string(p.getScore());
+    string scoreArray[5];
+    string initialArray[5];
+    string line;
+    int i = 0;
 
+    ifstream myfile("Leaderboard.txt");
+    if (myfile.is_open())
+    {
+        while (i < 5)
+        {
+            getline(myfile, line);
+            scoreArray[i] = line;
+            i++;
+        }
+        i = 0;
+        while (i < 5)
+        {
+            getline(myfile, line);
+            initialArray[i] = line;
+            i++;
+        }
+        myfile.close();
+    }
 
+    for (int i = 0; i < 5; i++)
+    {
+        if (stoi(score) >= stoi(scoreArray[i]))
+        {
+            scoreArray[i] = score;
+            initialArray[i] = "BBB";
+        }
+    }
 
+    Text title("LEADERBOARD", font1, 60);
+    title.setPosition(400, 100);
+    Text header("SCORE              NAME", font1, 25);
+    header.setPosition(400, 300);
 
+    Text first("1ST: " + scoreArray[0] + "                " + initialArray[0], font1, 25);
+    Text second("2ND: " + scoreArray[1] + "               " + initialArray[1], font1, 25);
+    Text third("3RD: " + scoreArray[2] + "               " + initialArray[2], font1, 25);
+    Text fourth("4TH: " + scoreArray[3] + "               " + initialArray[3], font1, 25);
+    Text fifth("5TH: " + scoreArray[4] + "               " + initialArray[4], font1, 25);
 
+    first.setPosition(400, 360);
+    second.setPosition(400, 400);
+    third.setPosition(400, 440);
+    fourth.setPosition(400, 480);
+    fifth.setPosition(400, 520);
 
+    display.window.draw(title);
+    display.window.draw(header);
+    display.window.draw(first);
+    display.window.draw(second);
+    display.window.draw(third);
+    display.window.draw(fourth);
+    display.window.draw(fifth);
+    display.window.display();
 
+    ofstream write("Leaderboard.txt");
+    if (write.is_open())
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            write << scoreArray[i] << endl;
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            write << initialArray[i] << endl;
+        }
+        write.close();
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    while (display.window.isOpen())
+    {
+        Event e;
+        // Checks for any input from user and it send it to event handler
+        while (display.window.pollEvent(e))
+        {
+            if (e.type == Event::KeyPressed)
+            {
+                if (e.key.code == Keyboard::Enter)
+                {
+                    display.window.clear();
+                    return;
+                }
+            }
+        }
+    }
 }
 
 int levelTwo(Player& p)
@@ -471,6 +538,8 @@ int levelOne()
     Player p;
     vector<Enemy> enemies;
 
+    scoreScreen(p);
+
     for (int i = 0; i < 20; i++)
     {
         enemies.push_back(Enemy(i * 30 + 300, 0));
@@ -646,6 +715,7 @@ int levelOne()
              display.window.display();
         }
     }
+    scoreScreen(p);
   } while (activeGame == true);
  return 0;
 }
