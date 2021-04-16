@@ -209,7 +209,7 @@ int levelTwo(Player& p)
 
         vector<Enemy> enemies;
 
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 30; i++)
         {
             enemies.push_back(Enemy(i * 30 + 300, 0));
         }
@@ -262,14 +262,16 @@ int levelTwo(Player& p)
                 if (p.gameOver())
                 {
                     check1 = 0;
+                    check = 0;
                     LoseScreen();
-                    break;
+                    activeGame = false;
                 }
                 if (enemies.size() == 0)
                 {
                     check1 = 0;
                     check = 0;
                     WinScreen();
+                    activeGame = false;
                 }
 
                 int selection = 0;
@@ -496,7 +498,10 @@ int levelOne()
                  {
                      activeGame = false;
                  }
-                 WinScreen();
+                 if (p.getLives() > 0)
+                 {
+                     WinScreen();
+                 }
              }
 
              int selection = 0;
