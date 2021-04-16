@@ -88,9 +88,12 @@ void TestSuite()
         }
       }
     }
-  }
 
-  cout << "Test 7: " << "Program can ... \n";
+  }
+    cout << "Test 7: " << "Program can ... \n";
+}
+
+
 void LevelDisplay(int i)
 {
     string i2 = to_string(i);
