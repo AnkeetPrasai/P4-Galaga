@@ -262,9 +262,8 @@ int levelTwo(Player& p)
                 if (p.gameOver())
                 {
                     check1 = 0;
-                    check = 0;
                     LoseScreen();
-                    activeGame = false;
+                    break;
                 }
                 if (enemies.size() == 0)
                 {
@@ -376,6 +375,7 @@ int levelTwo(Player& p)
                 //Displays the new frame
                 display.window.display();
             }
+            activeGame = false;
         }
     } while (activeGame == true);
     return 0;
@@ -502,6 +502,7 @@ int levelOne()
                  {
                      WinScreen();
                  }
+                 activeGame = false;
              }
 
              int selection = 0;
