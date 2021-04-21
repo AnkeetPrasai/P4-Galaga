@@ -93,7 +93,6 @@ void TestSuite()
     cout << "Test 7: " << "Program can ... \n";
 }
 
-
 void LevelDisplay(int i)
 {
     string i2 = to_string(i);
@@ -119,7 +118,7 @@ void LevelDisplay(int i)
         {
             if (e.type == Event::KeyPressed)
             {
-                if (e.key.code == Keyboard::Enter)
+                if (e.key.code == Keyboard::Enter || e.key.code == Keyboard::Space)
                 {
                     display.window.clear();
                     return;
@@ -255,6 +254,7 @@ void WinScreen()
 
 void scoreScreen(Player & p)
 {
+    display.window.clear();
     Font font1;
     if (!font1.loadFromFile("OriginTech personal use.ttf"))
     {
@@ -262,7 +262,6 @@ void scoreScreen(Player & p)
     }
     
     string score = to_string(p.getScore());
-    string initial = "BBB";
     string scoreArray[5];
     string initialArray[5];
     string line;
@@ -287,27 +286,12 @@ void scoreScreen(Player & p)
         myfile.close();
     }
 
-    if (score > scoreArray[4])
-    {
-        scoreArray[4] = score;
-        initialArray[4] = initial;
-    }
-
     for (int i = 0; i < 5; i++)
     {
-        for (int j = i + 1; j < 5; j++)
+        if (stoi(score) >= stoi(scoreArray[i]))
         {
-            if (stoi(scoreArray[i]) < stoi(scoreArray[j]))
-            {
-                string tempScore;
-                string tempInitial;
-                tempScore = scoreArray[i];
-                tempInitial = initialArray[i];
-                scoreArray[i] = scoreArray[j];
-                initialArray[i] = initialArray[j];
-                scoreArray[j] = tempScore;
-                initialArray[j] = tempInitial;
-            }
+            scoreArray[i] = score;
+            initialArray[i] = "BBB";
         }
     }
 
@@ -359,7 +343,7 @@ void scoreScreen(Player & p)
         {
             if (e.type == Event::KeyPressed)
             {
-                if (e.key.code == Keyboard::Enter)
+                if (e.key.code == Keyboard::Enter || e.key.code == Keyboard::Space)
                 {
                     display.window.clear();
                     return;
@@ -369,8 +353,7 @@ void scoreScreen(Player & p)
     }
 }
 
-int levelTwo(Player& p)
-{
+int levelTwo(Player& p) {
     sf::Music music;
     bool activeGame = true;
     do
@@ -646,6 +629,8 @@ int levelOne()
     Player p;
     vector<Enemy> enemies;
 
+    scoreScreen(p);
+
     for (int i = 0; i < 20; i++)
     {
         enemies.push_back(Enemy(i * 30 + 300, 0));
@@ -821,16 +806,14 @@ int levelOne()
              display.window.display();
         }
     }
-    display.window.clear();
     scoreScreen(p);
   } while (activeGame == true);
  return 0;
 }
 
-
 int main()
 {
-  levelOne();
   TestSuite();
+  levelOne();
   return 0;
 }

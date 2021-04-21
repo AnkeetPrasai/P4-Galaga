@@ -1,0 +1,84 @@
+What are the steps required to deploy your project? 
+
+Deployment Goals:
+
+1. Release - The project will be released to the public in a Open source format.
+			As this was made on the backbone of a already existing and popular copyrighted source.
+			The Release will require us to publish requirements for game to run, for this current
+			project the requirements are very low. Any windows device should be able to run it as
+			Every required file will be prepackaged into a downloadable container. 
+
+2. Installation and Activation - This project will be released in two fronts, one as a prepackaged
+			piece that contains a script or service that executes the program. And also, as an open 
+			Source project on GITHUB, where the general public can experiment with the code and 
+			potentially modify or fix the game if necessary. The GitHub release will require the 
+			users to have some knowledge on how to build the files.
+
+3. Deactivation - A system will be put in place for deactivation, an update checker will be 
+			implemented on the prepackaged release and that will check for updates with the hosting
+			server that then if the user desires to update will deactivate the program. 
+
+4. Uninstallation - A executable needs to be built that can delete the program + uninstall the 
+			dependencies that were installed for the program to run. 
+
+5. Update - The update processes are going to vary depending on whether the user chooses the 
+			prepackaged version or if they are using the open source GitHub version. 
+			For the GitHub users, new versions will be constantly available as stability is tested. 
+			For the prepackaged users’ new versions will be pushed out on the developmental timescale, 
+			once every 3 months, after user testing from GitHub and testing from the team of devs. 
+
+6. Built-in updates - The prepackaged version will have an update checker that will communicate with a 
+			host server to check if any newer versions of the software are available. If there is a 
+			newer version the application will prompt the user if they want to update, if selected 
+			yes, then it will call on the deactivation of the software and then update it. If the user
+			chooses no then it will do the same thing next time the software is run.
+			For GitHub users there is no Built-in Updates but all newer updates + implementation will 
+			be public on different branches for people to try out. 
+
+7. Version tracking - Version tracking is going to be automatic for the prepackaged developmental cycle.
+			They will follow a simple format where the version and date of release is listed.
+					Name	Version		Release Date
+				eg.	Galaga  v.4 		24-2-21.
+ 
+
+Who is the potential market? 
+	
+	The Potential market for this software is going to be gamers that like arcade games, indie games. 
+
+	The most prominent demographic would be 24-48 year olds, Mostly men. 
+	 - This game historically has been popular with that demographic, the age range of the demographic
+		has shifted as people have gotten older.
+	
+	Source - https://www.statista.com/topics/3070/us-gamers/
+
+What will it cost to deploy it? 
+
+	Cost of Deployment
+		
+		Since this is a open source project, the overall costs to maintain the software are going to be 
+		comparatively low.
+
+		the inflexible costs we have are going to be App Store costs, Domain costs to host our files
+		online
+		Domain costs 
+			$15 - $55 a year. 
+
+		Storefront costs
+			Steam / Playstation / Xbox 
+				
+				Insurance - $1500 a year
+				Foreign rating boards ( PEGI, USK, TvParental Guide) - $2000 one time 
+				Misc costs - 270 a year
+
+		Marketing costs to promote the application / project. 
+			
+			Variable cost depending on marketing effort. 
+
+			For initial offering, 
+				Youtube marketing, 
+					targeting males 24-48 with pre video ads, cost of $ 10 a day with estimated 500 ad clicks each month. 
+
+		Overall average of deployment = 35 + 1500 + 2000 + 270 + 10 * 200 = $ 5535
+					
+
+

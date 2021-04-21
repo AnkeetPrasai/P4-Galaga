@@ -1,0 +1,37 @@
+Use a defect tracking tool to manage software defects in your project (5%) 
+
+ 
+
+A simple list is adequate. 
+
+ 
+
+At a minimum it should include the following for each defect: 
+
+ 
+
+Date reported. 
+
+ 
+
+Who reported it 
+
+ 
+
+Brief description of defect 
+
+ 
+
+Date fixed 
+
+ 
+
+Who fixed it? 
+
+ 
+
+Brief description of how it was fixed. 
+
+ 
+
+Not all defects need to be fixed. 

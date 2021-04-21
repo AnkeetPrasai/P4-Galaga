@@ -6,6 +6,11 @@ hr total
 Ankeey Prasasi:
 4/8: 1 hr - Project 4 Pre-Planning Meeting
 hr total
+4/9: 1 hr - Planning and reorganizing deliverables + creating a new repo for project 4.
+4/12: 2 hr - Reviewing notes and lecture slides for documentation and artifacts.
+4/15: 1 hr - Creating all required files empty files in the repo + adding content to some files. 
+4/19: 0.5 hr - Deployment Plan research
+4/21: 2 hr - Completed Deployment Plan
 
 Brandon Lefert:
 4/8: 1 hr - Project 4 Pre-Planning Meeting
