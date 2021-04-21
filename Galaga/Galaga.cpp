@@ -262,6 +262,7 @@ void scoreScreen(Player & p)
     }
     
     string score = to_string(p.getScore());
+    string initial = "BBB";
     string scoreArray[5];
     string initialArray[5];
     string line;
@@ -286,12 +287,27 @@ void scoreScreen(Player & p)
         myfile.close();
     }
 
+    if (score > scoreArray[4])
+    {
+        scoreArray[4] = score;
+        initialArray[4] = initial;
+    }
+
     for (int i = 0; i < 5; i++)
     {
-        if (stoi(score) >= stoi(scoreArray[i]))
+        for (int j = i + 1; j < 5; j++)
         {
-            scoreArray[i] = score;
-            initialArray[i] = "BBB";
+            if (stoi(scoreArray[i]) < stoi(scoreArray[j]))
+            {
+                string tempScore;
+                string tempInitial;
+                tempScore = scoreArray[i];
+                tempInitial = initialArray[i];
+                scoreArray[i] = scoreArray[j];
+                initialArray[i] = initialArray[j];
+                scoreArray[j] = tempScore;
+                initialArray[j] = tempInitial;
+            }
         }
     }
 
@@ -630,8 +646,6 @@ int levelOne()
     Player p;
     vector<Enemy> enemies;
 
-    scoreScreen(p);
-
     for (int i = 0; i < 20; i++)
     {
         enemies.push_back(Enemy(i * 30 + 300, 0));
@@ -807,6 +821,7 @@ int levelOne()
              display.window.display();
         }
     }
+    display.window.clear();
     scoreScreen(p);
   } while (activeGame == true);
  return 0;
