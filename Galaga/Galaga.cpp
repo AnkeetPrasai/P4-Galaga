@@ -93,7 +93,6 @@ void TestSuite()
     cout << "Test 7: " << "Program can ... \n";
 }
 
-
 void LevelDisplay(int i)
 {
     string i2 = to_string(i);
@@ -119,7 +118,7 @@ void LevelDisplay(int i)
         {
             if (e.type == Event::KeyPressed)
             {
-                if (e.key.code == Keyboard::Enter)
+                if (e.key.code == Keyboard::Enter || e.key.code == Keyboard::Space)
                 {
                     display.window.clear();
                     return;
@@ -255,6 +254,7 @@ void WinScreen()
 
 void scoreScreen(Player & p)
 {
+    display.window.clear();
     Font font1;
     if (!font1.loadFromFile("OriginTech personal use.ttf"))
     {
@@ -343,7 +343,7 @@ void scoreScreen(Player & p)
         {
             if (e.type == Event::KeyPressed)
             {
-                if (e.key.code == Keyboard::Enter)
+                if (e.key.code == Keyboard::Enter || e.key.code == Keyboard::Space)
                 {
                     display.window.clear();
                     return;
@@ -353,8 +353,7 @@ void scoreScreen(Player & p)
     }
 }
 
-int levelTwo(Player& p)
-{
+int levelTwo(Player& p) {
     sf::Music music;
     bool activeGame = true;
     do
@@ -812,10 +811,9 @@ int levelOne()
  return 0;
 }
 
-
 int main()
 {
-  levelOne();
   TestSuite();
+  levelOne();
   return 0;
 }
