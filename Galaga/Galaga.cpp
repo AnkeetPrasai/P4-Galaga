@@ -264,6 +264,7 @@ void scoreScreen(Player & p)
     string scoreArray[5];
     string initialArray[5];
     string line;
+    string initial = "BBB";
     int i = 0;
 
     ifstream myfile("Leaderboard.txt");
@@ -285,12 +286,27 @@ void scoreScreen(Player & p)
         myfile.close();
     }
 
+    if (score > scoreArray[4])
+    {
+        scoreArray[4] = score;
+        initialArray[4] = initial;
+    }
+
     for (int i = 0; i < 5; i++)
     {
-        if (stoi(score) >= stoi(scoreArray[i]))
+        for (int j = i + 1; j < 5; j++)
         {
-            scoreArray[i] = score;
-            initialArray[i] = "BBB";
+            if (stoi(scoreArray[i]) < stoi(scoreArray[j]))
+            {
+                string tempScore;
+                string tempInitial;
+                tempScore = scoreArray[i];
+                tempInitial = initialArray[i];
+                scoreArray[i] = scoreArray[j];
+                initialArray[i] = initialArray[j];
+                scoreArray[j] = tempScore;
+                initialArray[j] = tempInitial;
+            }
         }
     }
 
