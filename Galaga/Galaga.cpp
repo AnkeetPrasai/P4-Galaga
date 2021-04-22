@@ -216,6 +216,8 @@ void LoseScreen()
 
 void WinScreen()
 {
+
+    display.window.clear();
   if (!music.openFromFile("winSound.ogg"))
   {
       return; // error
@@ -235,21 +237,71 @@ void WinScreen()
   display.window.draw(WinScreen);
   display.window.display();
 
+  //
   while (display.window.isOpen())
   {
-    Event e;
+      Event e;
       // Checks for any input from user and it send it to event handler
-    while (display.window.pollEvent(e))
-    {
-      if (e.type == Event::KeyPressed)
+      while (display.window.pollEvent(e))
       {
-        if (e.key.code == Keyboard::Space)
-        {
-          return;
-        }
-       }
-    }
+          if (e.type == Event::KeyPressed)
+          {
+              if (e.key.code == Keyboard::Space)
+              {
+                  return;
+              }
+          }
+      }
   }
+  //
+  //while (display.window.isOpen())
+  //{
+  //    Event e;
+  //    //string check[3];
+  //    string alphabet[26] = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" };
+  //    // Checks for any input from user and it send it to event handler
+  //    while (display.window.pollEvent(e))
+  //    {
+  //        for (int i = 0; i < 3; i++) {
+  //            if (e.type == Event::KeyPressed)
+  //            {
+  //                array[i] = alphabet[e.key.code];
+  //            }
+  //        }
+
+  //    }
+  //}
+  //
+  //Font font1;
+  //if (!font1.loadFromFile("OriginTech personal use.ttf"))
+  //{
+  //    return;
+  //}
+  //Text title("Congratulations on a High score", font1, 60);
+  //title.setPosition(400, 100);
+  //Text header("ENTER A 3 Letter Alias: ", font1, 25);
+  //header.setPosition(400, 300);
+
+  //display.window.draw(title);
+  //display.window.draw(header);
+
+  //display.window.display();
+  //
+  //while (display.window.isOpen())
+  //{
+  //  Event e;
+  //    // Checks for any input from user and it send it to event handler
+  //  while (display.window.pollEvent(e))
+  //  {
+  //    if (e.type == Event::KeyPressed)
+  //    {
+  //      if (e.key.code == Keyboard::Space)
+  //      {
+  //        return;
+  //      }
+  //     }
+  //  }
+  //}
 }
 
 void scoreScreen(Player & p)
@@ -265,7 +317,8 @@ void scoreScreen(Player & p)
     string scoreArray[5];
     string initialArray[5];
     string line;
-    string initial = "BBB";
+    char winner[3];
+    string initial;
     int i = 0;
 
     ifstream myfile("Leaderboard.txt");
@@ -296,10 +349,68 @@ void scoreScreen(Player & p)
     {
         cout << "TEST FAILED" << endl << endl;
     }
+    //
+    //
+    //
+    //
+    //
+    //
+    if (stoi(score) > stoi(scoreArray[4])) {
+
+
+        Text title("Congratulations on a High Score!", font1, 60);
+        title.setPosition(50, 100);
+        Text header("Enter a 3 Letter alias for the Score Board ", font1, 20);
+        header.setPosition(250, 300);
+
+        display.window.draw(title);
+        display.window.draw(header);
+
+        display.window.display();
+
+        while (display.window.isOpen())
+        {
+            Event e;
+            // Checks for any input from user and it send it to event handler
+            while (display.window.pollEvent(e))
+            {
+                //string alphabet[26] = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" };
+                // Checks for any input from user and it send it to event handler
+                for (int i = 0; i < 3; i++) {
+                    display.window.setKeyRepeatEnabled(false);
+                    if (e.type == Event::TextEntered)
+                    {
+
+                        if (e.text.unicode < 128) {
+                            std::cout << "ASCII character typed: " << static_cast<char>(e.text.unicode) << std::endl;
+                            winner[i] = static_cast<char>(e.text.unicode);
+                        }
+                        /*cout << e.key.code << "/n";
+                        winner[i] = alphabet[e.key.code % 27];
+                        cout << winner[i] << " " << "/n";*/
+                    }
+                }
+
+                display.window.clear();
+                break;
+
+            }
+        }
+        initial.append(winner);
+        cout << initial << " " << " fuck you ";
+
+    }
+    //
+    //
+    //
+    //
+    //
+    //
+    //
 
     if (stoi(score) > stoi(scoreArray[4]))
     {
-        scoreArray[4] = score;
+         scoreArray[4] = score;
         initialArray[4] = initial;
         cout << "Test 14: Checks if the player score gets added if its greater than a previous score on leaderboard" << endl;
         if (scoreArray[4] == score)
@@ -330,6 +441,7 @@ void scoreScreen(Player & p)
             }
         }
     }
+    display.window.clear();
 
     Text title("LEADERBOARD", font1, 60);
     title.setPosition(400, 100);
@@ -389,7 +501,7 @@ void scoreScreen(Player & p)
     }
 }
 
-int levelTwo(Player& p) {
+int levelTwo(Player& p, string winner[]) {
     sf::Music music;
     bool activeGame = true;
     do
@@ -523,7 +635,12 @@ int levelTwo(Player& p) {
 
                 int selection = 0;
                 int random = 0;
-                if (enemies.size() == 0) // Breaks out of the loop if the player wins
+                if (enemies.size() == 0) // Breaks out of the loop if the player wins 
+                                         
+                                         
+                                         
+                                         
+                                         // win condition for GAME 2
                 {
                     break;
                 }
@@ -633,6 +750,7 @@ int levelOne()
 {
   sf::Music music;
   bool activeGame = true;
+  string winner[3];
   do
   {
     int check = 1;
@@ -776,7 +894,7 @@ int levelOne()
                  cout << "Test 16: Checks if the game ends if the player destroys all enemies" << endl;
                  check1 = 0;
                  check = 0;
-                 levelTwo(p);
+                 levelTwo(p, winner);
                  if (display.window.isOpen() == false)
                  {
                      activeGame = false;
