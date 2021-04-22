@@ -216,8 +216,6 @@ void LoseScreen()
 
 void WinScreen()
 {
-
-    display.window.clear();
   if (!music.openFromFile("winSound.ogg"))
   {
       return; // error
@@ -237,74 +235,24 @@ void WinScreen()
   display.window.draw(WinScreen);
   display.window.display();
 
-  //
   while (display.window.isOpen())
   {
-      Event e;
+    Event e;
       // Checks for any input from user and it send it to event handler
-      while (display.window.pollEvent(e))
+    while (display.window.pollEvent(e))
+    {
+      if (e.type == Event::KeyPressed)
       {
-          if (e.type == Event::KeyPressed)
-          {
-              if (e.key.code == Keyboard::Space)
-              {
-                  return;
-              }
-          }
-      }
+        if (e.key.code == Keyboard::Space)
+        {
+          return;
+        }
+       }
+    }
   }
-  //
-  //while (display.window.isOpen())
-  //{
-  //    Event e;
-  //    //string check[3];
-  //    string alphabet[26] = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" };
-  //    // Checks for any input from user and it send it to event handler
-  //    while (display.window.pollEvent(e))
-  //    {
-  //        for (int i = 0; i < 3; i++) {
-  //            if (e.type == Event::KeyPressed)
-  //            {
-  //                array[i] = alphabet[e.key.code];
-  //            }
-  //        }
-
-  //    }
-  //}
-  //
-  //Font font1;
-  //if (!font1.loadFromFile("OriginTech personal use.ttf"))
-  //{
-  //    return;
-  //}
-  //Text title("Congratulations on a High score", font1, 60);
-  //title.setPosition(400, 100);
-  //Text header("ENTER A 3 Letter Alias: ", font1, 25);
-  //header.setPosition(400, 300);
-
-  //display.window.draw(title);
-  //display.window.draw(header);
-
-  //display.window.display();
-  //
-  //while (display.window.isOpen())
-  //{
-  //  Event e;
-  //    // Checks for any input from user and it send it to event handler
-  //  while (display.window.pollEvent(e))
-  //  {
-  //    if (e.type == Event::KeyPressed)
-  //    {
-  //      if (e.key.code == Keyboard::Space)
-  //      {
-  //        return;
-  //      }
-  //     }
-  //  }
-  //}
 }
 
-void scoreScreen(Player & p)
+void scoreScreen(Player & p, bool & test12)
 {
     display.window.clear();
     Font font1;
@@ -312,19 +260,18 @@ void scoreScreen(Player & p)
     {
         return;
     }
-    
+
     string score = to_string(p.getScore());
     string scoreArray[5];
     string initialArray[5];
     string line;
-    char winner[3];
-    string initial;
+    string initial = "BBB";
     int i = 0;
 
     ifstream myfile("Leaderboard.txt");
     if (myfile.is_open())
     {
-        cout << "Test 12: Makes sure leaderboard.txt file still has data" << endl;
+
         while (i < 5)
         {
             getline(myfile, line);
@@ -340,7 +287,9 @@ void scoreScreen(Player & p)
         }
         myfile.close();
     }
-
+if (test12 == false)
+{
+    cout << "Test 12: Makes sure leaderboard.txt file still has data" << endl;
     if (scoreArray[0] != "")
     {
         cout << "TEST PASSED" << endl << endl;
@@ -349,68 +298,12 @@ void scoreScreen(Player & p)
     {
         cout << "TEST FAILED" << endl << endl;
     }
-    //
-    //
-    //
-    //
-    //
-    //
-    if (stoi(score) > stoi(scoreArray[4])) {
-
-
-        Text title("Congratulations on a High Score!", font1, 60);
-        title.setPosition(50, 100);
-        Text header("Enter a 3 Letter alias for the Score Board ", font1, 20);
-        header.setPosition(250, 300);
-
-        display.window.draw(title);
-        display.window.draw(header);
-
-        display.window.display();
-
-        while (display.window.isOpen())
-        {
-            Event e;
-            // Checks for any input from user and it send it to event handler
-            while (display.window.pollEvent(e))
-            {
-                //string alphabet[26] = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" };
-                // Checks for any input from user and it send it to event handler
-                for (int i = 0; i < 3; i++) {
-                    display.window.setKeyRepeatEnabled(false);
-                    if (e.type == Event::TextEntered)
-                    {
-
-                        if (e.text.unicode < 128) {
-                            std::cout << "ASCII character typed: " << static_cast<char>(e.text.unicode) << std::endl;
-                            winner[i] = static_cast<char>(e.text.unicode);
-                        }
-                        /*cout << e.key.code << "/n";
-                        winner[i] = alphabet[e.key.code % 27];
-                        cout << winner[i] << " " << "/n";*/
-                    }
-                }
-
-                display.window.clear();
-                break;
-
-            }
-        }
-        initial.append(winner);
-        cout << initial << " " << " fuck you ";
-
-    }
-    //
-    //
-    //
-    //
-    //
-    //
-    //
+    test12 = true;
+  }
 
     if (stoi(score) > stoi(scoreArray[4]))
     {
-         scoreArray[4] = score;
+        scoreArray[4] = score;
         initialArray[4] = initial;
         cout << "Test 14: Checks if the player score gets added if its greater than a previous score on leaderboard" << endl;
         if (scoreArray[4] == score)
@@ -441,7 +334,6 @@ void scoreScreen(Player & p)
             }
         }
     }
-    display.window.clear();
 
     Text title("LEADERBOARD", font1, 60);
     title.setPosition(400, 100);
@@ -501,7 +393,9 @@ void scoreScreen(Player & p)
     }
 }
 
-int levelTwo(Player& p, string winner[]) {
+int levelTwo(Player& p) {
+  bool test11 = false;
+  bool test12 = false;
     sf::Music music;
     bool activeGame = true;
     do
@@ -635,12 +529,7 @@ int levelTwo(Player& p, string winner[]) {
 
                 int selection = 0;
                 int random = 0;
-                if (enemies.size() == 0) // Breaks out of the loop if the player wins 
-                                         
-                                         
-                                         
-                                         
-                                         // win condition for GAME 2
+                if (enemies.size() == 0) // Breaks out of the loop if the player wins
                 {
                     break;
                 }
@@ -691,7 +580,7 @@ int levelTwo(Player& p, string winner[]) {
 
                 for (int i = 0; i < p.getProjectiles().size(); i++) //Updates the projectiles with their new positions
                 {
-                    p.updateProjectiles(i, enemies);
+                    p.updateProjectiles(i, enemies, test11);
                 }
 
                 for (int i = 0; i < enemies.size(); i++)
@@ -746,11 +635,14 @@ int levelTwo(Player& p, string winner[]) {
     return 0;
 }
 
-int levelOne()
+int levelOne(bool &test13)
 {
+  bool test7 = false;
+  bool test8 = false;
+  bool test11 = false;
+  bool test12 = false;
   sf::Music music;
   bool activeGame = true;
-  string winner[3];
   do
   {
     int check = 1;
@@ -793,9 +685,15 @@ int levelOne()
     }
 
     music.play();
-    cout << "Test 13: Makes sure the user can exit the start screen" << endl;
     StartScreen();
-    cout << "TEST PASSED" << endl << endl;
+    if (test13 == false)
+    {
+      cout << "Test 13: Makes sure the user can exit the start screen" << endl;
+      cout << "TEST PASSED" << endl << endl;
+    }
+    test13 = true;
+
+
     display.window.clear();
     LevelDisplay(1);
     music.stop();
@@ -803,7 +701,7 @@ int levelOne()
     Player p;
     vector<Enemy> enemies;
 
-    scoreScreen(p);
+    scoreScreen(p, test12);
 
     for (int i = 0; i < 20; i++)
     {
@@ -833,15 +731,21 @@ int levelOne()
                    {
                      int size = p.getProjectiles().size();
                      p.Shoot();
-                     cout << "Test 8: Tests the shooting mechanic of the game if the user presses space" << endl;
-                     if (size < p.getProjectiles().size())
+                     if (test8 == false)
                      {
-                         cout << "TEST PASSED" << endl << endl;
+                       cout << "Test 8: Tests the shooting mechanic of the game if the user presses space" << endl;
+                       if (size < p.getProjectiles().size())
+                       {
+                           cout << "TEST PASSED" << endl << endl;
+                           test8 = true;
+                       }
+                       else
+                       {
+                           cout << "TEST FAILED" << endl << endl;
+                           test8 = true;
+                       }
                      }
-                     else
-                     {
-                         cout << "TEST FAILED" << endl << endl;
-                     }
+
                      if (!music.openFromFile("Laser.ogg"))
                      {
                        return -1; // error
@@ -894,7 +798,14 @@ int levelOne()
                  cout << "Test 16: Checks if the game ends if the player destroys all enemies" << endl;
                  check1 = 0;
                  check = 0;
-                 levelTwo(p, winner);
+                 cout << "TEST PASSED" << endl << endl;
+                 levelTwo(p);
+
+                 if (enemies.size() != 0)
+                 {
+                   cout << "TEST FAILED" << endl << endl;
+                 }
+                 
                  if (display.window.isOpen() == false)
                  {
                      activeGame = false;
@@ -904,14 +815,6 @@ int levelOne()
                      WinScreen();
                  }
                  activeGame = false;
-                 if (activeGame == false)
-                 {
-                     cout << "TEST PASSED" << endl << endl;
-                 }
-                 else
-                 {
-                     cout << "TEST FAILED" << endl << endl;
-                 }
              }
 
              int selection = 0;
@@ -967,7 +870,7 @@ int levelOne()
 
              for (int i = 0; i < p.getProjectiles().size(); i++) //Updates the projectiles with their new positions
              {
-                 p.updateProjectiles(i, enemies);
+                 p.updateProjectiles(i, enemies, test11);
              }
 
              for (int i = 0; i < enemies.size(); i++)
@@ -1008,15 +911,20 @@ int levelOne()
                  int numOfLives = p.getLives();
                  if (p.checkCollison(enemies[i]) == true)
                  {
+                   if (test7 == false)
+                   {
                      cout << "Test 7: Tests if the player loses a life if they get hit" << endl;
                      if (p.getLives() < numOfLives)
                      {
                          cout << "TEST PASSED" << endl << endl;
+                         test7 = true;
                      }
                      else
                      {
                          cout << "TEST FAILED" << endl << endl;
+                         test7 = true;
                      }
+                   }
                  }
              }
 
@@ -1029,14 +937,15 @@ int levelOne()
              display.window.display();
         }
     }
-    scoreScreen(p);
+    scoreScreen(p, test12);
   } while (activeGame == true);
  return 0;
 }
 
 int main()
 {
+  bool test13 = false;
   TestSuite();
-  levelOne();
+  levelOne(test13);
   return 0;
 }

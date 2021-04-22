@@ -63,7 +63,7 @@ class Player
 		* @parm vector<Enemy> - The vector holding all of the enemies on the board
 		* @return Nothing
 		**/
-		void updateProjectiles(int, std::vector<Enemy>&);
+		void updateProjectiles(int, std::vector<Enemy>&, bool &test11);
 
 		/**
 		* Returns all the projectiles that the player has shot
@@ -92,30 +92,30 @@ class Player
 		* @parm int - Returns the number of lives the player has
 		**/
 		int getLives();
-		
+
 	private:
 		/**
-		* The total number of lives the player has 
+		* The total number of lives the player has
 		**/
 		int lives;
 
 		/**
-		* The triangle shape of the user 
+		* The triangle shape of the user
 		**/
 		CircleShape shape;
 
-		/** 
-		* The circle shape of the projectiles they shoot 
+		/**
+		* The circle shape of the projectiles they shoot
 		**/
 		CircleShape projectile;
 
-		/** 
-		* The vector containing all of the projectiles the player has shot 
+		/**
+		* The vector containing all of the projectiles the player has shot
 		**/
 		std::vector<CircleShape> projectiles;
 
-		/** 
-		* The score that the player has 
+		/**
+		* The score that the player has
 		**/
 		int score;
 };
