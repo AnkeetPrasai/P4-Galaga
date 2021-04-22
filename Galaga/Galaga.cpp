@@ -90,7 +90,6 @@ void TestSuite()
     }
 
   }
-    cout << "Test 7: " << "Program can ... \n";
 }
 
 void LevelDisplay(int i)
@@ -673,7 +672,17 @@ int levelOne()
              {
                 if (e.key.code == Keyboard::Space)
                    {
+                     int size = p.getProjectiles().size();
                      p.Shoot();
+                     cout << "Test 8: Tests the shooting mechanic of the game if the user presses space" << endl;
+                     if (size < p.getProjectiles().size())
+                     {
+                         cout << "TEST PASSED" << endl << endl;
+                     }
+                     else
+                     {
+                         cout << "TEST FAILED" << endl << endl;
+                     }
                      if (!music.openFromFile("Laser.ogg"))
                      {
                        return -1; // error
@@ -686,6 +695,15 @@ int levelOne()
                          check = 0;
                          check1 = 0;
                          activeGame = false;
+                         cout << "Test 9: Tests if pressing ESC closes the program" << endl;
+                         if (display.window.isOpen() == false)
+                         {
+                             cout << "TEST PASSED" << endl << endl;
+                         }
+                         else
+                         {
+                             cout << "TEST FAILED" << endl << endl;
+                         }
                    }
                    else
                    {
@@ -810,7 +828,19 @@ int levelOne()
 
              for (int i = 0; i < enemies.size(); i++)
              {
-                 p.checkCollison(enemies[i]);
+                 int numOfLives = p.getLives();
+                 if (p.checkCollison(enemies[i]) == true)
+                 {
+                     cout << "Test 7: Tests if the player loses a life if they get hit" << endl;
+                     if (p.getLives() < numOfLives)
+                     {
+                         cout << "TEST PASSED" << endl << endl;
+                     }
+                     else
+                     {
+                         cout << "TEST FAILED" << endl << endl;
+                     }
+                 }
              }
 
              for (int i = 0; i < enemies.size(); i++) //Draws the enemies on the screen

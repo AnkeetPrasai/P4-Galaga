@@ -259,7 +259,17 @@ void Player::updateProjectiles(int i, std::vector<Enemy> &e)
 		Rect<float> en(e[j].getShape().getPosition().x, e[j].getShape().getPosition().y, 10.f, 10.f);
 		if (p.intersects(en))
 		{
+			std::cout << "Test 11: Tests if enemies get removed if they get hit" << std::endl;
+			int numOfEnemies = e.size();
 			e.erase(e.begin() + j);
+			if (numOfEnemies > e.size())
+			{
+				std::cout << "TEST PASSED" << std::endl << std::endl;
+			}
+			else
+			{
+				std::cout << "TEST FAILED" << std::endl << std::endl;
+			}
 			score = score + 100;
 		}
 	}
