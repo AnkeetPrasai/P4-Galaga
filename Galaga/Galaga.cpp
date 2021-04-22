@@ -252,7 +252,7 @@ void WinScreen()
   }
 }
 
-void scoreScreen(Player & p)
+void scoreScreen(Player & p, bool & test12)
 {
     display.window.clear();
     Font font1;
@@ -260,7 +260,7 @@ void scoreScreen(Player & p)
     {
         return;
     }
-    
+
     string score = to_string(p.getScore());
     string scoreArray[5];
     string initialArray[5];
@@ -271,7 +271,7 @@ void scoreScreen(Player & p)
     ifstream myfile("Leaderboard.txt");
     if (myfile.is_open())
     {
-        cout << "Test 12: Makes sure leaderboard.txt file still has data" << endl;
+
         while (i < 5)
         {
             getline(myfile, line);
@@ -287,7 +287,9 @@ void scoreScreen(Player & p)
         }
         myfile.close();
     }
-
+if (test12 == false)
+{
+    cout << "Test 12: Makes sure leaderboard.txt file still has data" << endl;
     if (scoreArray[0] != "")
     {
         cout << "TEST PASSED" << endl << endl;
@@ -296,6 +298,8 @@ void scoreScreen(Player & p)
     {
         cout << "TEST FAILED" << endl << endl;
     }
+    test12 = true;
+  }
 
     if (stoi(score) > stoi(scoreArray[4]))
     {
@@ -390,6 +394,8 @@ void scoreScreen(Player & p)
 }
 
 int levelTwo(Player& p) {
+  bool test11 = false;
+  bool test12 = false;
     sf::Music music;
     bool activeGame = true;
     do
@@ -574,7 +580,7 @@ int levelTwo(Player& p) {
 
                 for (int i = 0; i < p.getProjectiles().size(); i++) //Updates the projectiles with their new positions
                 {
-                    p.updateProjectiles(i, enemies);
+                    p.updateProjectiles(i, enemies, test11);
                 }
 
                 for (int i = 0; i < enemies.size(); i++)
@@ -629,8 +635,12 @@ int levelTwo(Player& p) {
     return 0;
 }
 
-int levelOne()
+int levelOne(bool &test13)
 {
+  bool test7 = false;
+  bool test8 = false;
+  bool test11 = false;
+  bool test12 = false;
   sf::Music music;
   bool activeGame = true;
   do
@@ -675,9 +685,15 @@ int levelOne()
     }
 
     music.play();
-    cout << "Test 13: Makes sure the user can exit the start screen" << endl;
     StartScreen();
-    cout << "TEST PASSED" << endl << endl;
+    if (test13 == false)
+    {
+      cout << "Test 13: Makes sure the user can exit the start screen" << endl;
+      cout << "TEST PASSED" << endl << endl;
+    }
+    test13 = true;
+
+
     display.window.clear();
     LevelDisplay(1);
     music.stop();
@@ -685,7 +701,7 @@ int levelOne()
     Player p;
     vector<Enemy> enemies;
 
-    scoreScreen(p);
+    scoreScreen(p, test12);
 
     for (int i = 0; i < 20; i++)
     {
@@ -715,15 +731,21 @@ int levelOne()
                    {
                      int size = p.getProjectiles().size();
                      p.Shoot();
-                     cout << "Test 8: Tests the shooting mechanic of the game if the user presses space" << endl;
-                     if (size < p.getProjectiles().size())
+                     if (test8 == false)
                      {
-                         cout << "TEST PASSED" << endl << endl;
+                       cout << "Test 8: Tests the shooting mechanic of the game if the user presses space" << endl;
+                       if (size < p.getProjectiles().size())
+                       {
+                           cout << "TEST PASSED" << endl << endl;
+                           test8 = true;
+                       }
+                       else
+                       {
+                           cout << "TEST FAILED" << endl << endl;
+                           test8 = true;
+                       }
                      }
-                     else
-                     {
-                         cout << "TEST FAILED" << endl << endl;
-                     }
+
                      if (!music.openFromFile("Laser.ogg"))
                      {
                        return -1; // error
@@ -776,7 +798,14 @@ int levelOne()
                  cout << "Test 16: Checks if the game ends if the player destroys all enemies" << endl;
                  check1 = 0;
                  check = 0;
+                 cout << "TEST PASSED" << endl << endl;
                  levelTwo(p);
+
+                 if (enemies.size() != 0)
+                 {
+                   cout << "TEST FAILED" << endl << endl;
+                 }
+                 
                  if (display.window.isOpen() == false)
                  {
                      activeGame = false;
@@ -786,14 +815,6 @@ int levelOne()
                      WinScreen();
                  }
                  activeGame = false;
-                 if (activeGame == false)
-                 {
-                     cout << "TEST PASSED" << endl << endl;
-                 }
-                 else
-                 {
-                     cout << "TEST FAILED" << endl << endl;
-                 }
              }
 
              int selection = 0;
@@ -849,7 +870,7 @@ int levelOne()
 
              for (int i = 0; i < p.getProjectiles().size(); i++) //Updates the projectiles with their new positions
              {
-                 p.updateProjectiles(i, enemies);
+                 p.updateProjectiles(i, enemies, test11);
              }
 
              for (int i = 0; i < enemies.size(); i++)
@@ -890,15 +911,20 @@ int levelOne()
                  int numOfLives = p.getLives();
                  if (p.checkCollison(enemies[i]) == true)
                  {
+                   if (test7 == false)
+                   {
                      cout << "Test 7: Tests if the player loses a life if they get hit" << endl;
                      if (p.getLives() < numOfLives)
                      {
                          cout << "TEST PASSED" << endl << endl;
+                         test7 = true;
                      }
                      else
                      {
                          cout << "TEST FAILED" << endl << endl;
+                         test7 = true;
                      }
+                   }
                  }
              }
 
@@ -911,14 +937,15 @@ int levelOne()
              display.window.display();
         }
     }
-    scoreScreen(p);
+    scoreScreen(p, test12);
   } while (activeGame == true);
  return 0;
 }
 
 int main()
 {
+  bool test13 = false;
   TestSuite();
-  levelOne();
+  levelOne(test13);
   return 0;
 }

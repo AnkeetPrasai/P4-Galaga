@@ -20,159 +20,6 @@ Player::~Player()
 
 void Player::Movement(Event e)
 {
-//   bool up = false;
-//   bool down = false;
-//   bool right = false;
-//   bool left = false;
-//   // int a = 0;
-//         // switch (e.key.code)
-//       // while (display.window.pollEvent(e))
-//       // {
-//         std::cout << "test2";
-//
-//
-//     while (display.window.isOpen()) {
-//       while (display.window.pollEvent(e)) {
-//         switch (e.type)
-//         {
-//   		//AWDS
-//           case Event::KeyPressed:
-//             if (e.key.code == Keyboard::A)
-//             {
-//               left = true;
-//             }
-//             else if (e.key.code == Keyboard::W)
-//             {
-//               up = true;
-//             }
-//             else if (e.key.code == Keyboard::S)
-//             {
-//               down = true;
-//             }
-//             else if (e.key.code == Keyboard::D)
-//             {
-//               right = true;
-//
-//             }
-//             break;
-//           case Event::KeyReleased:
-//             if (e.key.code == Keyboard::A)
-//             {
-//               left = false;
-//             }
-//            else if (e.key.code == Keyboard::W)
-//             {
-//               up = false;
-//             }
-//             else if (e.key.code == Keyboard::S)
-//             {
-//               down = false;
-//             }
-//             else if (e.key.code == Keyboard::D)
-//             {
-//               right = false;
-//             }
-//             break;
-//           case Event::Closed:
-//             display.window.close();
-//             break;
-//           default:
-//             break;
-//         }
-//       }
-//
-//
-//       if (up && down)
-//       {
-//         std::cout << "Moving up and down" << std::endl;
-//         shape.move(0, -20);
-//         shape.move(0, 20);
-//         if (!music.openFromFile("MoveSound.ogg"))
-//           return; // error
-//         music.play();
-//       }
-//       else if (up && left)
-//       {
-//         std::cout << "Moving up and left" << std::endl;
-//         shape.move(0, -20);
-//         shape.move(-20, 0);
-//         if (!music.openFromFile("MoveSound.ogg"))
-//           return; // error
-//         music.play();
-//       }
-//       else if (up && right)
-//       {
-//        std::cout << "Moving up and right" << std::endl;
-//         shape.move(0, -20);
-//         shape.move(20, 0);
-//         if (!music.openFromFile("MoveSound.ogg"))
-//           return; // error
-//         music.play();
-//       }
-//       else if (down && left)
-//       {
-//         std::cout << "Moving down and left" << std::endl;
-//         shape.move(0, 20);
-//         shape.move(-20, 0);
-//         if (!music.openFromFile("MoveSound.ogg"))
-//           return; // error
-//         music.play();
-//       }
-//       else if (down && right)
-//       {
-//         std::cout << "Moving down and right" << std::endl;
-//         shape.move(0, -20);
-//         shape.move(20, 0);
-//         if (!music.openFromFile("MoveSound.ogg"))
-//           return; // error
-//         music.play();
-//       }
-//       else if (left && right)
-//       {
-//         std::cout << "Moving left and right" << std::endl;
-//         shape.move(-20, 0);
-//         shape.move(20, 0);
-//         if (!music.openFromFile("MoveSound.ogg"))
-//           return; // error
-//         music.play();
-//       }
-//       else if (up)
-//       {
-//         std::cout << "Moving up" << std::endl;
-//         shape.move(0, -20);
-//       	if (!music.openFromFile("MoveSound.ogg"))
-//       		return; // error
-//       	music.play();
-//       }
-//       else if (right)
-//       {
-//         std::cout << "Moving right" << std::endl;
-//         shape.move(20, 0);
-//         if (!music.openFromFile("MoveSound.ogg"))
-//            return; // error
-//         music.play();
-//       }
-//       else if (down)
-//       {
-//           std::cout << "Moving down" << std::endl;
-//           shape.move(0, 20);
-//     		  if (!music.openFromFile("MoveSound.ogg"))
-//     			    return; // error
-//     		  music.play();
-//       }
-//       else if (left)
-//       {
-//         std::cout << "Moving left" << std::endl;
-//         shape.move(-20, 0);
-//         if (!music.openFromFile("MoveSound.ogg"))
-//             return; // error
-//         music.play();
-//       }
-//       else
-//       {
-//
-//       }
-
 switch (e.key.code)
       {
 
@@ -250,7 +97,7 @@ void Player::Shoot()
 	projectiles.push_back(CircleShape(projectile));
 }
 
-void Player::updateProjectiles(int i, std::vector<Enemy> &e)
+void Player::updateProjectiles(int i, std::vector<Enemy> &e, bool &test11)
 {
 	projectiles[i].move(0, -10.f);
 	Rect<float> p(projectiles[i].getPosition().x, projectiles[i].getPosition().y, 10.f, 10.f);
@@ -259,17 +106,23 @@ void Player::updateProjectiles(int i, std::vector<Enemy> &e)
 		Rect<float> en(e[j].getShape().getPosition().x, e[j].getShape().getPosition().y, 10.f, 10.f);
 		if (p.intersects(en))
 		{
-			std::cout << "Test 11: Tests if enemies get removed if they get hit" << std::endl;
 			int numOfEnemies = e.size();
 			e.erase(e.begin() + j);
-			if (numOfEnemies > e.size())
-			{
-				std::cout << "TEST PASSED" << std::endl << std::endl;
-			}
-			else
-			{
-				std::cout << "TEST FAILED" << std::endl << std::endl;
-			}
+      if (test11 == false)
+  		{
+        std::cout << "Test 11: Tests if enemies get removed if they get hit" << std::endl;
+        	if (numOfEnemies > e.size())
+  			  {
+  				 std::cout << "TEST PASSED" << std::endl << std::endl;
+           test11 = true;
+  			  }
+  			else
+  			{
+  				std::cout << "TEST FAILED" << std::endl << std::endl;
+          test11 = true;
+  			}
+      }
+      test11 = true;
 			score = score + 100;
 		}
 	}
