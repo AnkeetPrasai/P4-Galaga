@@ -301,7 +301,17 @@ void scoreScreen(Player & p)
     {
         scoreArray[4] = score;
         initialArray[4] = initial;
+        cout << "Test 14: Checks if the player score gets added if its greater than a previous score on leaderboard" << endl;
+        if (scoreArray[4] == score)
+        {
+            cout << "TEST PASSED" << endl << endl;
+        }
+        else
+        {
+            cout << "TEST FAILED" << endl << endl;
+        }
     }
+
 
     for (int i = 0; i < 5; i++)
     {
@@ -468,6 +478,15 @@ int levelTwo(Player& p) {
                         check = 0;
                         check1 = 0;
                         activeGame = false;
+                        cout << "Test 9: Tests if pressing ESC closes the program" << endl;
+                        if (display.window.isOpen() == false)
+                        {
+                            cout << "TEST PASSED" << endl << endl;
+                        }
+                        else
+                        {
+                            cout << "TEST FAILED" << endl << endl;
+                        }
                     }
                     else
                     {
@@ -481,7 +500,16 @@ int levelTwo(Player& p) {
                 }
                 if (p.gameOver())
                 {
+                    cout << "Test 15: Checks if the game ends if the player funs out of lives" << endl;
                     check1 = 0;
+                    if (check1 == 0)
+                    {
+                        cout << "TEST PASSED" << endl << endl;
+                    }
+                    else
+                    {
+                        cout << "TEST FAILED" << endl << endl;
+                    }
                     LoseScreen();
                     break;
                 }
@@ -730,7 +758,16 @@ int levelOne()
              }
              if (p.gameOver())
              {
+                 cout << "Test 15: Checks if the game ends if the player funs out of lives" << endl;
                  check1 = 0;
+                 if (check1 == 0)
+                 {
+                     cout << "TEST PASSED" << endl << endl;
+                 }
+                 else
+                 {
+                     cout << "TEST FAILED" << endl << endl;
+                 }
                  LoseScreen();
                  break;
              }
