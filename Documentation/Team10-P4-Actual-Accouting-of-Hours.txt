@@ -1,6 +1,8 @@
 Alex Wilhelm:
 4/8: 1 hr - Project 4 Pre-Planning Meeting
 4/12: 1.5 hr - Organization rehaul, starting of test suite, updating person hours documentation
+4/20: 1.5 hr - Maintenance Plan Work
+4/22: 2 hr - Stopped Test Suites from repeating, fixed a few broken test suites, added checks for if test has already printed. Organization rehaul.
 hr total
 
 Ankeey Prasasi:
