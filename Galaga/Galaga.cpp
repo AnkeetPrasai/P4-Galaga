@@ -255,6 +255,7 @@ void WinScreen()
 void scoreScreen(Player & p, bool & test12)
 {
     display.window.clear();
+    char winner[3];
     Font font1;
     if (!font1.loadFromFile("OriginTech personal use.ttf"))
     {
@@ -265,7 +266,7 @@ void scoreScreen(Player & p, bool & test12)
     string scoreArray[5];
     string initialArray[5];
     string line;
-    string initial = "BBB";
+    string initial;
     int i = 0;
 
     ifstream myfile("Leaderboard.txt");
@@ -300,6 +301,65 @@ if (test12 == false)
     }
     test12 = true;
   }
+
+        //
+          //
+          //
+          //
+          //
+          //
+        if (stoi(score) > stoi(scoreArray[4])) {
+
+
+            Text title("Congratulations on a High Score!", font1, 60);
+            title.setPosition(50, 100);
+            Text header("Enter a 3 Letter alias for the Score Board ", font1, 20);
+            header.setPosition(250, 300);
+
+            display.window.draw(title);
+            display.window.draw(header);
+
+            display.window.display();
+
+            while (display.window.isOpen())
+            {
+                Event e;
+                // Checks for any input from user and it send it to event handler
+                while (display.window.pollEvent(e))
+                {
+                    //string alphabet[26] = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" };
+                    // Checks for any input from user and it send it to event handler
+                    for (int i = 0; i < 3; i++) {
+                        display.window.setKeyRepeatEnabled(false);
+                        if (e.type == Event::TextEntered)
+                        {
+
+                            if (e.text.unicode < 128) {
+                                std::cout << "ASCII character typed: " << static_cast<char>(e.text.unicode) << std::endl;
+                                winner[i] = static_cast<char>(e.text.unicode);
+                            }
+                            /*cout << e.key.code << "/n";
+                            winner[i] = alphabet[e.key.code % 27];
+                            cout << winner[i] << " " << "/n";*/
+                        }
+                    }
+
+                    display.window.clear();
+                    break;
+
+                }
+            }
+            initial.append(winner);
+            cout << initial << " " << " fuck you ";
+
+        }
+        //
+        //
+        //
+        //
+        //
+        //
+        //
 
     if (stoi(score) > stoi(scoreArray[4]))
     {
