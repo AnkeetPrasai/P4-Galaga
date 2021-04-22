@@ -173,6 +173,7 @@ void StartScreen()
       }
     }
   }
+  cout << "TEST FAILED" << endl;
 }
 
 void LoseScreen()
@@ -270,6 +271,7 @@ void scoreScreen(Player & p)
     ifstream myfile("Leaderboard.txt");
     if (myfile.is_open())
     {
+        cout << "Test 12: Makes sure leaderboard.txt file still has data" << endl;
         while (i < 5)
         {
             getline(myfile, line);
@@ -286,7 +288,16 @@ void scoreScreen(Player & p)
         myfile.close();
     }
 
-    if (score > scoreArray[4])
+    if (scoreArray[0] != "")
+    {
+        cout << "TEST PASSED" << endl << endl;
+    }
+    else
+    {
+        cout << "TEST FAILED" << endl << endl;
+    }
+
+    if (stoi(score) > stoi(scoreArray[4]))
     {
         scoreArray[4] = score;
         initialArray[4] = initial;
@@ -636,7 +647,9 @@ int levelOne()
     }
 
     music.play();
+    cout << "Test 13: Makes sure the user can exit the start screen" << endl;
     StartScreen();
+    cout << "TEST PASSED" << endl << endl;
     display.window.clear();
     LevelDisplay(1);
     music.stop();
