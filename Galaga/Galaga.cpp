@@ -304,10 +304,7 @@ if (test12 == false)
 
         //
           //
-          //
-          //
-          //
-          //
+          
         if (stoi(score) > stoi(scoreArray[4])) {
 
 
@@ -321,36 +318,35 @@ if (test12 == false)
 
             display.window.display();
 
-            while (display.window.isOpen())
+            if (display.window.isOpen())
             {
                 Event e;
+                int i = 0;
                 // Checks for any input from user and it send it to event handler
                 while (display.window.pollEvent(e))
                 {
                     //string alphabet[26] = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" };
                     // Checks for any input from user and it send it to event handler
-                    for (int i = 0; i < 3; i++) {
-                        display.window.setKeyRepeatEnabled(false);
+                        //display.window.setKeyRepeatEnabled(false);
                         if (e.type == Event::TextEntered)
                         {
-
-                            if (e.text.unicode < 128) {
-                                std::cout << "ASCII character typed: " << static_cast<char>(e.text.unicode) << std::endl;
-                                winner[i] = static_cast<char>(e.text.unicode);
+                                if (e.text.unicode < 128) {
+                                    std::cout << "ASCII character typed: " << static_cast<char>(e.text.unicode) << std::endl;
+                                    winner[i] = static_cast<char>(e.text.unicode);
+                                    i++;
+                                    if (i == 2)
+                                        break;
                             }
                             /*cout << e.key.code << "/n";
                             winner[i] = alphabet[e.key.code % 27];
                             cout << winner[i] << " " << "/n";*/
                         }
-                    }
 
                     display.window.clear();
-                    break;
 
                 }
             }
             initial.append(winner);
-            cout << initial << " " << " fuck you ";
 
         }
         //
