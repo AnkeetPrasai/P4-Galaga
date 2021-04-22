@@ -870,7 +870,7 @@ int levelOne(bool &test13)
                  {
                      WinScreen();
                  }
-                 activeGame = false;
+                 //activeGame = false;
              }
 
              int selection = 0;
