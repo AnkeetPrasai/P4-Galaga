@@ -500,7 +500,7 @@ int levelTwo(Player& p) {
                 }
                 if (p.gameOver())
                 {
-                    cout << "Test 15: Checks if the game ends if the player funs out of lives" << endl;
+                    cout << "Test 15: Checks if the game ends if the player runs out of lives" << endl;
                     check1 = 0;
                     if (check1 == 0)
                     {
@@ -758,7 +758,7 @@ int levelOne()
              }
              if (p.gameOver())
              {
-                 cout << "Test 15: Checks if the game ends if the player funs out of lives" << endl;
+                 cout << "Test 15: Checks if the game ends if the player runs out of lives" << endl;
                  check1 = 0;
                  if (check1 == 0)
                  {
@@ -773,6 +773,7 @@ int levelOne()
              }
              if (enemies.size() == 0)
              {
+                 cout << "Test 16: Checks if the game ends if the player destroys all enemies" << endl;
                  check1 = 0;
                  check = 0;
                  levelTwo(p);
@@ -785,6 +786,14 @@ int levelOne()
                      WinScreen();
                  }
                  activeGame = false;
+                 if (activeGame == false)
+                 {
+                     cout << "TEST PASSED" << endl << endl;
+                 }
+                 else
+                 {
+                     cout << "TEST FAILED" << endl << endl;
+                 }
              }
 
              int selection = 0;
