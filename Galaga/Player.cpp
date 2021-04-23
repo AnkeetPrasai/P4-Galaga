@@ -67,25 +67,25 @@ switch (e.key.code)
 }
 
 		//Keeps track if the player ends up off the screen
+//keep player in the windows
 		if (shape.getPosition().x < 0)
 		{
-			shape.setPosition(1280, shape.getPosition().y); //Resets if the player goes off the left side
+			shape.setPosition(0, shape.getPosition().y); //Resets if the player goes off the left side
 		}
-		else if (shape.getPosition().x > 1280)
+		else if (shape.getPosition().x > 1240)
 		{
-			shape.setPosition(0, shape.getPosition().y); //Resets if the player goes off the right side
+			shape.setPosition(1240, shape.getPosition().y); //Resets if the player goes off the right side
 		}
 		else if (shape.getPosition().y < 0)
 		{
-			shape.setPosition(shape.getPosition().x, 720); //Resets if the player goes off the top
+			shape.setPosition(shape.getPosition().x, 0); //Resets if the player goes off the top
 		}
-		else if (shape.getPosition().y > 720)
+		else if (shape.getPosition().y > 680)
 		{
-			shape.setPosition(shape.getPosition().x, 0); //Resets if the player goes off the bottom
+			shape.setPosition(shape.getPosition().x, 680); //Resets if the player goes off the bottom
 		}
   // }
 }
-
 CircleShape Player::getShape()
 {
     return shape;
