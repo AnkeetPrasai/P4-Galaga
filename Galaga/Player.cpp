@@ -67,25 +67,25 @@ switch (e.key.code)
 }
 
 		//Keeps track if the player ends up off the screen
+//keep player in the windows
 		if (shape.getPosition().x < 0)
 		{
-			shape.setPosition(1280, shape.getPosition().y); //Resets if the player goes off the left side
+			shape.setPosition(0, shape.getPosition().y); //Resets if the player goes off the left side
 		}
-		else if (shape.getPosition().x > 1280)
+		else if (shape.getPosition().x > 1240)
 		{
-			shape.setPosition(0, shape.getPosition().y); //Resets if the player goes off the right side
+			shape.setPosition(1240, shape.getPosition().y); //Resets if the player goes off the right side
 		}
 		else if (shape.getPosition().y < 0)
 		{
-			shape.setPosition(shape.getPosition().x, 720); //Resets if the player goes off the top
+			shape.setPosition(shape.getPosition().x, 0); //Resets if the player goes off the top
 		}
-		else if (shape.getPosition().y > 720)
+		else if (shape.getPosition().y > 680)
 		{
-			shape.setPosition(shape.getPosition().x, 0); //Resets if the player goes off the bottom
+			shape.setPosition(shape.getPosition().x, 680); //Resets if the player goes off the bottom
 		}
   // }
 }
-
 CircleShape Player::getShape()
 {
     return shape;
@@ -141,23 +141,56 @@ bool Player::checkCollison(Enemy &e)
 {
 	bool collison = false;
 	Rect<float> p(shape.getPosition().x, shape.getPosition().y, 40.f, 40.f);
+
+	Rect<float> reborn_L(display.window.getSize().x/2 - 360, 680, 40.f, 40.f);
+	Rect<float> reborn_M(display.window.getSize().x/ 2, 680, 40.f, 40.f);
+
 	Rect<float> en(e.getShape().getPosition().x, e.getShape().getPosition().y, 10.f, 10.f);
+	//small
 	for (int i = 0; i < e.getProjectiles().size(); i++)
 	{
 		Rect<float> pro(e.getProjectiles()[i].getPosition().x, e.getProjectiles()[i].getPosition().y, 5.f, 5.f);
 		if (p.intersects(pro))
 		{
 			lives--;
-			e.getShape().setPosition(e.getPosition(), 0);
-			shape.setPosition(display.window.getSize().x / 2, 680);
+			if (p.intersects(reborn_L))
+			{
+				e.getShape().setPosition(e.getPosition(), 0);
+				shape.setPosition(display.window.getSize().x / 2, 680);
+			}
+			else if (p.intersects(reborn_M))
+			{
+				e.getShape().setPosition(e.getPosition(), 0);
+				shape.setPosition((display.window.getSize().x / 2) + 280, 680);
+			}
+			else
+			{
+				e.getShape().setPosition(e.getPosition(), 0);
+				shape.setPosition(display.window.getSize().x / 2 - 280, 680);
+			}
 			collison = true;
+			break;
 		}
 	}
+	//big
 	if (p.intersects(en))
 	{
 		lives--;
-		shape.setPosition(display.window.getSize().x / 2, 680);
-		e.getShape().setPosition(e.getPosition(), 0);
+		if (p.intersects(reborn_L))
+		{
+			e.getShape().setPosition(e.getPosition(), 0);
+			shape.setPosition(display.window.getSize().x/2, 680);
+		}
+		else if (p.intersects(reborn_M))
+		{
+			e.getShape().setPosition(e.getPosition(), 0);
+			shape.setPosition((display.window.getSize().x / 2) + 280, 680);
+		}
+		else
+		{
+			e.getShape().setPosition(e.getPosition(), 0);
+			shape.setPosition(display.window.getSize().x/2 - 280, 680);
+		}
 		collison = true;
 	}
 	return collison;
