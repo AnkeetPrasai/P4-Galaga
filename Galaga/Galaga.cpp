@@ -322,31 +322,127 @@ if (test12 == false)
             {
                 Event e;
                 int i = 0;
+                int check = 0;
+                char random;
                 // Checks for any input from user and it send it to event handler
-                while (display.window.pollEvent(e))
+                while (display.window.pollEvent(e) || check == 0)
                 {
                     //string alphabet[26] = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" };
                     // Checks for any input from user and it send it to event handler
                         //display.window.setKeyRepeatEnabled(false);
-                        if (e.type == Event::TextEntered)
+                    //while (check == 0)
+                    {
+                        if (e.type == Event::KeyPressed)
                         {
-                                if (e.text.unicode < 128) {
-                                    std::cout << "ASCII character typed: " << static_cast<char>(e.text.unicode) << std::endl;
-                                    winner[i] = static_cast<char>(e.text.unicode);
+                                //if (e.text.unicode < 0x80) {
+                                    //cin >> random;
+                                    switch (e.key.code)
+                                    {
+                                        case Keyboard::A:
+                                            random = 'A';
+                                            break;
+                                        case Keyboard::B:
+                                            random = 'B';
+                                            break;
+                                        case Keyboard::C:
+                                            random = 'C';
+                                            break;
+                                        case Keyboard::D:
+                                            random = 'D';
+                                            break;
+                                        case Keyboard::E:
+                                            random = 'E';
+                                            break;
+                                        case Keyboard::F:
+                                            random = 'F';
+                                            break;
+                                        case Keyboard::G:
+                                            random = 'G';
+                                            break;
+                                        case Keyboard::H:
+                                            random = 'H';
+                                            break;
+                                        case Keyboard::I:
+                                            random = 'I';
+                                            break;
+                                        case Keyboard::J:
+                                            random = 'J';
+                                            break;
+                                        case Keyboard::K:
+                                            random = 'K';
+                                            break;
+                                        case Keyboard::L:
+                                            random = 'L';
+                                            break;
+                                        case Keyboard::M:
+                                            random = 'M';
+                                            break;
+                                        case Keyboard::N:
+                                            random = 'N';
+                                            break;
+                                        case Keyboard::O:
+                                            random = 'O';
+                                            break;
+                                        case Keyboard::P:
+                                            break;
+                                            random = 'P';
+                                        case Keyboard::Q:
+                                            random = 'Q';
+                                            break;
+                                        case Keyboard::R:
+                                            random = 'R';
+                                            break;
+                                        case Keyboard::S:
+                                            random = 'S';
+                                            break;
+                                        case Keyboard::T:
+                                            random = 'T';
+                                            break;
+                                        case Keyboard::U:
+                                            random = 'U';
+                                            break;
+                                        case Keyboard::V:
+                                            random = 'V';
+                                            break;
+                                        case Keyboard::W:
+                                            random = 'W';
+                                            break;
+                                        case Keyboard::X:
+                                            random = 'X';
+                                            break;
+                                        case Keyboard::Y:
+                                            random = 'Y';
+                                            break;
+                                        case Keyboard::Z:
+                                            random = 'Z';
+                                            break;
+                                        case Keyboard::Unknown:
+                                            random = 'B';
+                                            break;
+                                    }
+                                    //std::cout << "ASCII character typed: " << e.text.unicode << std::endl;
+                                    cout << random << endl;
+                                    //winner[i] = static_cast<char>(e.text.unicode);
+                                    initial += random;
                                     i++;
-                                    if (i == 2)
-                                        break;
-                            }
+                                //}
+                            
                             /*cout << e.key.code << "/n";
                             winner[i] = alphabet[e.key.code % 27];
                             cout << winner[i] << " " << "/n";*/
                         }
+                    }
 
-                    display.window.clear();
-
+                    //display.window.clear();
+                    if (i == 3)
+                    {
+                        check = 1;
+                    }
+                    //check = 1;
                 }
             }
-            initial.append(winner);
+            display.window.clear();
+            //initial.append(winner);
 
         }
         //
