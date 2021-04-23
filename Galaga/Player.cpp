@@ -141,23 +141,56 @@ bool Player::checkCollison(Enemy &e)
 {
 	bool collison = false;
 	Rect<float> p(shape.getPosition().x, shape.getPosition().y, 40.f, 40.f);
+
+	Rect<float> reborn_L(display.window.getSize().x/2 - 360, 680, 40.f, 40.f);
+	Rect<float> reborn_M(display.window.getSize().x/ 2, 680, 40.f, 40.f);
+
 	Rect<float> en(e.getShape().getPosition().x, e.getShape().getPosition().y, 10.f, 10.f);
+	//small
 	for (int i = 0; i < e.getProjectiles().size(); i++)
 	{
 		Rect<float> pro(e.getProjectiles()[i].getPosition().x, e.getProjectiles()[i].getPosition().y, 5.f, 5.f);
 		if (p.intersects(pro))
 		{
 			lives--;
-			e.getShape().setPosition(e.getPosition(), 0);
-			shape.setPosition(display.window.getSize().x / 2, 680);
+			if (p.intersects(reborn_L))
+			{
+				e.getShape().setPosition(e.getPosition(), 0);
+				shape.setPosition(display.window.getSize().x / 2, 680);
+			}
+			else if (p.intersects(reborn_M))
+			{
+				e.getShape().setPosition(e.getPosition(), 0);
+				shape.setPosition((display.window.getSize().x / 2) + 280, 680);
+			}
+			else
+			{
+				e.getShape().setPosition(e.getPosition(), 0);
+				shape.setPosition(display.window.getSize().x / 2 - 280, 680);
+			}
 			collison = true;
+			break;
 		}
 	}
+	//big
 	if (p.intersects(en))
 	{
 		lives--;
-		shape.setPosition(display.window.getSize().x / 2, 680);
-		e.getShape().setPosition(e.getPosition(), 0);
+		if (p.intersects(reborn_L))
+		{
+			e.getShape().setPosition(e.getPosition(), 0);
+			shape.setPosition(display.window.getSize().x/2, 680);
+		}
+		else if (p.intersects(reborn_M))
+		{
+			e.getShape().setPosition(e.getPosition(), 0);
+			shape.setPosition((display.window.getSize().x / 2) + 280, 680);
+		}
+		else
+		{
+			e.getShape().setPosition(e.getPosition(), 0);
+			shape.setPosition(display.window.getSize().x/2 - 280, 680);
+		}
 		collison = true;
 	}
 	return collison;
