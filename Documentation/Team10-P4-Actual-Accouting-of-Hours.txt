@@ -16,7 +16,12 @@ hr total
 
 Brandon Lefert:
 4/8: 1 hr - Project 4 Pre-Planning Meeting
-hr total
+4/15: 3 hr - Added a second level and started leaderboard text file to save scores
+4/21: 4 hr - Worked more on leaderboard, scores are saved and rewritten onto text file. Also added more test cases to test suite.
+4/22: 2 hr - Fixed some more level 2 looping so it loops back properly now
+4/23: 2 hr - Got it so the player can put initals on the leaderboard and they are saved and added. Also worked on defect list text file to document defects.
+
+12 hr total
 
 Hu Tang:
 4/8: 1 hr - Project 4 Pre-Planning Meeting
