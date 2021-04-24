@@ -24,3 +24,8 @@ Defects:
    - Repoted by Brandon on 4/15
    - Fixed by Brandon on 4/15
    - After completeing level 2 like the previous level, it wasn't looping back to the start properly so you couldn't instantly start a new level. Fixed by changing the return on the second level function to allow a certain return.
+
+6. Graphics window not accepting Text entry for Leaderboard
+   - Reported by Ankeet on 4/18
+   - Fixed by Brandon on 4/23
+   - THe input would first not take input, then it would take random inputs. Fixed by creating a alphabet array and then checking frame of input with the array to check the input before recording it. 

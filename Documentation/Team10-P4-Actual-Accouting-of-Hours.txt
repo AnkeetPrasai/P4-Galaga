@@ -13,6 +13,9 @@ hr total
 4/15: 1 hr - Creating all required files empty files in the repo + adding content to some files. 
 4/19: 0.5 hr - Deployment Plan research
 4/21: 2 hr - Completed Deployment Plan
+4/22: 3.5 hr - Bug fixing - Trying to fix Highscore text input
+4/23: 2 hr - Comments + Video draft
+4/24: 2.5 hr - Finalizing all project files + Finishing video
 
 Brandon Lefert:
 4/8: 1 hr - Project 4 Pre-Planning Meeting
