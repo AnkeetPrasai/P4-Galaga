@@ -1,7 +1,7 @@
 For us to launch our Project 4, a remake of Galaga, it would take a lot 
 of effort for us to get it on the market and to sell to a network that 
 lists games for purchase. Once we accomplished that massive task, the 
-next goal would be able to sustain our game and prepare it to be ready 
+next goal would be to sustain our game and prepare it to be ready 
 for updates, whether it is the software of the device we developed it 
 on (for example a Dell Laptop Windows operating system update might
 break our game and make it no longer work) or a general update to the 
@@ -12,10 +12,12 @@ In order to keep with this goal, we need to have a team to develop
 software, tools for writing our code, active domains/servers as well as 
 a right and license to list our game on the game listing networks like 
 the Xbox Live store.
+
 First, the most important and expensive part, is hiring software developers 
 that will maintain and improve this game. Fortunately for us looking to 
 graduate, the career outlook is great and starting salaries for Computer 
-Science graduates can average around the $55,000-75,000 range. 
+Science graduates can average around the $55,000-75,000 range as found on
+multiple sourcs throughout the internet, such as Forbes.
 Unfortunately, in this situation, we are looking at paying for these 
 developers ourselves. As maintenance is what we are looking for, it would 
 not hurt to assume we would have up to 3 developers in a team on payroll 
@@ -24,9 +26,9 @@ game breaking bugs over its maintenance period, let’s assume we’d run
 into around 5 reported problems per year. Given that these bugs would 
 most likely be a quick fix, let’s plan for each developer working 5 hours
 per problem, leading to a collective amount of 75 hours 
-(5 hrs. per problem * 5 problems  * 3 developers). 
+(5 hrs. per problem * 5 problems * 3 developers). 
 Using the average salary of $66,800 as listed in Forbes (roughly estimated
-to be $33/hour, at 75 hours, would cost us roughly $2,475 a year to cover.
+to be $33/hour), at 75 hours, would cost us roughly $2,475 a year to cover.
 
 Having the right tools to code is another important task that we need to 
 account for. Git Hub Team is a membership that would benefit us greatly in
@@ -34,7 +36,8 @@ working as a team and is currently listed at $4 per month on their website.
 Investing in a better code writing software like Visual Studio Professional
 could also assist in our testing/maintenance of our product. It is listed 
 as $45 per month on their website. Assuming a year of memberships, we could
-have around $600 in membership fees a year (5 * 12 + 45 	* 12). 
+have around $600 in membership fees a year (5 * 12 + 45 * 12). 
+
 Maintaining a domain and server for our game would also be a fee we would
 have to pay to host. To host online, for only around $4 per month, we can
 list multiple websites on a domain with unlimited traffic costing us a 
