@@ -6,7 +6,6 @@ if there is anything wrong. We will figure it out together. When someone has don
 Then we will look at it and check if there are any bugs in the new code. Finally, We will get it done and check it together. For both Project 3 and 4,
  our team uses the Top-Down Integration. Obviously project 4 is based on the previous project 3. The reasons why we chose to use Top-Down Integration
  is because it is easy toearly find the design flaws early. We can know what we did wrong, if there is anything we can not do. We will then change it immediately.
- The second reason is that we can code and test logic artifacts before we actually write it. Then, using the two reasons before, we can avoid major fault. 
+ The second reason is that we can code and test logic artifacts before we actually write it. Then, using the two reasons before, we can avoid major faulst. 
 If we have the issue, we still have parts to reuse. Forth reason is that we can use less time on it cause we all are busy. And we can check code quick and fast. 
-Final reason: We know Top-Down integration’s weakness, but we have confidence to avoid it. our team has many communicate. We all  has the phone number , groupme , and discord. 
-We can communicate with each other as soon as we can. 
+Final reason: We know Top-Down integration’s weakness, but we have confidence to avoid it. our team has many communication modes. We all have each other's phone numbers, GroupMe user info, and discord user info. We can communicate with each other as soon as possibl with these forms of communication/ 
