@@ -15,7 +15,7 @@ hr total
 4/21: 2 hr - Completed Deployment Plan
 4/22: 3.5 hr - Bug fixing - Trying to fix Highscore text input
 4/23: 2 hr - Comments + Video draft
-4/24: 2.5 hr - Finalizing all project files + Finishing video
+4/24: 3.5 hr - Finalizing all project files + Finishing video
 
 Brandon Lefert:
 4/8: 1 hr - Project 4 Pre-Planning Meeting

@@ -370,7 +370,7 @@ if (test12 == false)
             Text title("Congratulations on a High Score!", font1, 60);
             title.setPosition(50, 100);
             Text header("Enter a 3 Letter alias for the Score Board ", font1, 20);
-            header.setPosition(250, 300);
+            header.setPosition(300, 300);
 
             display.window.draw(title);
             display.window.draw(header);
@@ -382,7 +382,7 @@ if (test12 == false)
                 Event e;
                 int i = 0;
                 int check = 0;
-                char random;
+                char random = ' ';
                 // Checks for any input from user and it send it to event handler
 
                 /**
@@ -484,7 +484,7 @@ if (test12 == false)
                                             break;
                                     }
                                     //std::cout << "ASCII character typed: " << e.text.unicode << std::endl;
-                                    cout << random << endl;
+                                    //cout << random << endl;
                                     //winner[i] = static_cast<char>(e.text.unicode);
                                     initial += random;
                                     i++;
