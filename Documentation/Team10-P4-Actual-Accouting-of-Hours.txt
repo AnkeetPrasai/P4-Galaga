@@ -3,11 +3,12 @@ Alex Wilhelm:
 4/12: 1.5 hr - Organization rehaul, starting of test suite, updating person hours documentation
 4/20: 1.5 hr - Maintenance Plan Work
 4/22: 2 hr - Stopped Test Suites from repeating, fixed a few broken test suites, added checks for if test has already printed. Organization rehaul.
-hr total
+4/24: 0.5 hr - Recording Audio for Video
+
+6.5 hr total
 
 Ankeey Prasasi:
 4/8: 1 hr - Project 4 Pre-Planning Meeting
-hr total
 4/9: 1 hr - Planning and reorganizing deliverables + creating a new repo for project 4.
 4/12: 2 hr - Reviewing notes and lecture slides for documentation and artifacts.
 4/15: 1 hr - Creating all required files empty files in the repo + adding content to some files. 
@@ -16,6 +17,8 @@ hr total
 4/22: 3.5 hr - Bug fixing - Trying to fix Highscore text input
 4/23: 2 hr - Comments + Video draft
 4/24: 2.5 hr - Finalizing all project files + Finishing video
+
+14.5 hr total 
 
 Brandon Lefert:
 4/8: 1 hr - Project 4 Pre-Planning Meeting
@@ -28,4 +31,5 @@ Brandon Lefert:
 
 Hu Tang:
 4/8: 1 hr - Project 4 Pre-Planning Meeting
+
 hr total
