@@ -1,12 +1,11 @@
-Describe how your team integrated code from the team members. Which Integration 
-Strategy do you think your team used? Explain why. 
-Frist, The best of our programmer will write a structure for the program. Then we will sperate the function and feature which we need to write in the program.
- It will be by order of the tree of program. Every team member work top-levels of structure first. Go steps on the top to down. Next, we work on it and test it.
- if there are anything stuck. We will figure it out together. when someone has done their task. We will update it in the Github and notice everyone. 
-Then we will look at it and check if there are any bugs in the new code. finally. We get it done and check it together. For both project 3 and 4.
- Our team uses the Top-Down Integration. Obviously project 4 is based on the project 3. The reasons why we chose to use Top-Down Integration.
- it is early to find out how the design flaws. We can know what we can do, if there are something we can not do. We will change it immediately.
- Second reason is that we can code and test logic artifacts before we actually write it. Then, we have the two reasons before, we can avoid major fault. 
-If we have the issue, we still have parts to reuse. Forth reason is that we can use less time on it cause we both are busy. And we can check code quick and fast. 
-Fina reasons. We know Top-Down integration’s weakness. but we have confidence to avoid it. our team has many communicate. We both has the phone number , groupme , and discord. 
-We can communicate with each other as soon as we can. 
+Describe how your team integrated code from the team members. Which Integration Strategy do you think your team used? Explain why.
+
+First, our best programmer will write a structure for the program. Then, we will seperate the functions and features which we need to write in the program.
+ It will be by order of the tree of the program. Every team member works top-levels of structure first. We will do steps from top-down. Next, we will work on it and test it
+if there is anything wrong. We will figure it out together. When someone has done their task, we will update it in the GitHub and notify everyone. 
+Then we will look at it and check if there are any bugs in the new code. Finally, We will get it done and check it together. For both Project 3 and 4,
+ our team uses the Top-Down Integration. Obviously project 4 is based on the previous project 3. The reasons why we chose to use Top-Down Integration
+ is because it is easy to find the design flaws early. We can know what we did wrong, and if there is anything we can not do. We will then change it immediately.
+ The second reason is that we can code and test logic artifacts before we actually write it. Then, using the two reasons stated before, we can avoid major faults. 
+If we have the issue, we still have parts to reuse. The forth reason is that we can use less time on it because we all are busy and we can check code quickly. 
+Final reason: We know Top-Down integration’s weakness, but we have confidence to avoid it. our team has many communication modes. We all have each other's phone numbers, GroupMe user info, and discord user info. We can communicate with each other as soon as possible with these forms of communication.

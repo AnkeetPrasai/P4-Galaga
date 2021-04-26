@@ -5,51 +5,54 @@
 using namespace sf;
 using namespace std;
 
+/**
+* Suite of Tests to Ensure the Program is functioning Correctly at Various Points 
+**/
 void TestSuite()
 {
-  cout << "Test 1: " << "Program detects if theme song is in file.\n";
+  cout << "Test 1: " << "Program detects if theme song is in file.\n"; // Ensures that the program can find the sound file in the directory
   if (music.openFromFile("GalagaTheme.ogg"))
   {
-    cout << "PASSED TEST\n\n";
+    cout << "PASSED TEST\n\n"; // Passes if file is found
   }
   else
   {
-    cout << "FAILED TEST\n\n";
+    cout << "FAILED TEST\n\n"; // Fails if not found
   }
 
-  cout << "Test 2: " << "Program detects if shoot sound is in file.\n";
+  cout << "Test 2: " << "Program detects if shoot sound is in file.\n"; // Ensures that the program can find the sound file in the directory
   if (music.openFromFile("Laser.ogg"))
   {
-    cout << "PASSED TEST\n\n";
+    cout << "PASSED TEST\n\n"; // Passes if file is found 
   }
   else
   {
-    cout << "FAILED TEST\n\n";
+    cout << "FAILED TEST\n\n"; // Fails if not found
   }
 
-  cout << "Test 3: " << "Program detects if Galaga Theme Logo is in file.\n";
+  cout << "Test 3: " << "Program detects if Galaga Theme Logo is in file.\n"; // Ensures that the program can find the 'logo' png file in the directory
   sf::Texture galagaLogo;
   if (galagaLogo.loadFromFile("GalagaLogo.png"))
   {
-    cout << "PASSED TEST\n\n";
+    cout << "PASSED TEST\n\n"; // Passes if file is found 
   }
   else
   {
-    cout << "FAILED TEST\n\n";
+    cout << "FAILED TEST\n\n"; // Fails if not found
   }
 
-  cout << "Test 4: " << "Program detects if Push Space Key Image is in file.\n";
+  cout << "Test 4: " << "Program detects if Push Space Key Image is in file.\n"; // Ensures that the program can find the 'Space Key' png file in the directory
   sf::Texture pushSpaceKey;
   if (pushSpaceKey.loadFromFile("pushSpaceKey.jpg"))
   {
-    cout << "PASSED TEST\n\n";
+    cout << "PASSED TEST\n\n";  // Passes if file is found 
   }
   else
   {
-    cout << "FAILED TEST\n\n";
+    cout << "FAILED TEST\n\n"; // Fails if not found
   }
 
-  cout << "Test 5: " << "Program can detect player not moving.\n";
+  cout << "Test 5: " << "Program can detect player not moving.\n"; // Checks when the program isnt getting input from the Player
   Player p;
   Event e;
   int endf = 0;
@@ -59,18 +62,18 @@ void TestSuite()
     {
       if (!(e.key.code == Keyboard::A))
       {
-        cout << "PASSED TEST\n\n";
+        cout << "PASSED TEST\n\n"; // If no Movement or input is detected, passes
       }
       else
       {
-        cout << "FAILED TEST\n\n";
+        cout << "FAILED TEST\n\n"; // If movement is detected fails
       }
     }
     endf = 1;
   }
 
 
-  cout << "Test 6: " << "Program can detect player 'AWSD' keyboard presses. \n";
+  cout << "Test 6: " << "Program can detect player 'AWSD' keyboard presses. \n"; // Checks when 'A' 'W' 'S' 'D' keys are recorded through input
   while (display.window.isOpen() && ((endf == 0) || (endf == 1)))
   {
     while (display.window.pollEvent(e) && ((endf == 0) || (endf == 1)))
@@ -79,12 +82,12 @@ void TestSuite()
       {
         if ((e.key.code == Keyboard::A || e.key.code == Keyboard::W || e.key.code == Keyboard::S || e.key.code == Keyboard::D))
         {
-          cout << "PASSED TEST\n\n";
+          cout << "PASSED TEST\n\n"; // If ASWD is Detected passes
           endf = 2;
         }
         else
         {
-          cout << "WRONG INPUT, TYPE one of the following letters: 'W' 'A 'S' 'D'\n\n";
+          cout << "WRONG INPUT, TYPE one of the following letters: 'W' 'A 'S' 'D'\n\n"; // Fails if ASWD is not detected
         }
       }
     }
@@ -92,23 +95,35 @@ void TestSuite()
   }
 }
 
+
+/*
+Function to draw a new screen with Text that reads Level followed by the Level number 
+
+@class display.window
+
+@param int
+       int param represents the Level value fed in to the function
+
+Function terminates when user input of either Space or Enter is read
+
+*/
 void LevelDisplay(int i)
 {
     string i2 = to_string(i);
     Text level;
     Font font1;
-    if (!font1.loadFromFile("OriginTech personal use.ttf"))
+    if (!font1.loadFromFile("OriginTech personal use.ttf")) //Loading custom font
     {
         return;
     }
 
     level.setStyle(Text::Bold);
     level.setFont(font1);
-    level.setPosition(550, 360);
+    level.setPosition(550, 360); //Choosing coordinates to place the Text on Display
     level.setCharacterSize(50);
     level.setString("LEVEL " + i2);
-    display.window.draw(level);
-    display.window.display();
+    display.window.draw(level); //Drawing Graphics for the window
+    display.window.display(); //Displaying Graphics to window
     while (display.window.isOpen())
     {
         Event e;
@@ -127,9 +142,20 @@ void LevelDisplay(int i)
     }
 }
 
+/*
+Function to draw a new screen that welcomes the players to the game
+Home screen function
+
+@class display.window
+
+@param none
+
+Function terminates when user input of either Space or Enter is read
+
+*/
 void StartScreen()
 {
-  sf::Texture galagaLogo;
+  sf::Texture galagaLogo; 
   sf::Sprite galagaScreen;
   sf::Texture pushSpaceKey;
   sf::Sprite spaceKeyScreen;
@@ -137,14 +163,13 @@ void StartScreen()
   spaceKeyScreen.setPosition(display.window.getSize().x / 2 - 200, display.window.getSize().y / 2 + 250);
   spaceKeyScreen.scale(2.f, 2.f);
 
-  if (!galagaLogo.loadFromFile("GalagaLogo.png"))
-  {
+  if (!galagaLogo.loadFromFile("GalagaLogo.png")){ //Error incase png load fails
     cout << "Could not load Galaga image";
   }
 
   galagaScreen.setTexture(galagaLogo);
 
-  if (!pushSpaceKey.loadFromFile("pushSpaceKey.jpg"))
+  if (!pushSpaceKey.loadFromFile("pushSpaceKey.jpg")) //Error incase png load fails
   {
     cout << "Could not load push space key image";
   }
@@ -162,12 +187,12 @@ void StartScreen()
     {
       if (e.type == Event::KeyPressed)
       {
-        if (e.key.code == Keyboard::Space)
+        if (e.key.code == Keyboard::Space) // Event handler that checks for space to start the game
         {
           display.window.clear();
           return;
         }
-        else if (e.key.code == Keyboard::Tab) {
+        else if (e.key.code == Keyboard::Tab) { // Event handler that checks for Tab to start the test suite
           TestSuite();
         }
       }
@@ -176,6 +201,17 @@ void StartScreen()
   cout << "TEST FAILED" << endl;
 }
 
+
+/*
+Function to draw a new screen that informs players that they lost the game
+
+@class display.window
+
+@param none
+
+Function terminates when user input of either Space or Enter is read
+
+*/
 void LoseScreen()
 {
   if (!music.openFromFile("gameOverSound.ogg"))
@@ -188,7 +224,7 @@ void LoseScreen()
   sf::Sprite LoseScreen;
   LoseScreen.setPosition(display.window.getSize().x / 2 - 100, display.window.getSize().y / 2 - 100);
 
-  if (!GameOver.loadFromFile("GameOver.jpg"))
+  if (!GameOver.loadFromFile("GameOver.jpg")) //Error condition incase png load fails
   {
     cout << "Could not load Game Over image" << endl;
   }
@@ -214,6 +250,16 @@ void LoseScreen()
   }
 }
 
+/*
+Function to draw a new screen that informs players that they won the game
+
+@class display.window
+
+@param none
+
+Function terminates when user input of either Space or Enter is read
+
+*/
 void WinScreen()
 {
   if (!music.openFromFile("winSound.ogg"))
@@ -226,7 +272,7 @@ void WinScreen()
   sf::Sprite WinScreen;
   WinScreen.setPosition(display.window.getSize().x / 2 - 200, display.window.getSize().y / 2 - 200);
 
-  if (!Win.loadFromFile("youWin.png"))
+  if (!Win.loadFromFile("youWin.png")) //Error condition incase png load fails
   {
     cout << "Could not load Winning Screen image" << endl;
   }
@@ -252,24 +298,37 @@ void WinScreen()
   }
 }
 
+
+/*
+Function to draw a new screen that shows Highscores
+
+@class display.window
+
+@param player
+@param bool
+
+Function accepts a player instance and a bool conditonal
+Function imports a external txt document and parses it into arrays, then displays arrays for the leaderboard. 
+
+*/
 void scoreScreen(Player & p, bool & test12)
 {
     display.window.clear();
     char winner[3];
     Font font1;
-    if (!font1.loadFromFile("OriginTech personal use.ttf"))
+    if (!font1.loadFromFile("OriginTech personal use.ttf")) // Error condition for font file load error
     {
         return;
     }
 
-    string score = to_string(p.getScore());
+    string score = to_string(p.getScore()); // cast int to string
     string scoreArray[5];
     string initialArray[5];
     string line;
     string initial;
     int i = 0;
 
-    ifstream myfile("Leaderboard.txt");
+    ifstream myfile("Leaderboard.txt"); // Parsing external txt file for scores
     if (myfile.is_open())
     {
 
@@ -290,14 +349,14 @@ void scoreScreen(Player & p, bool & test12)
     }
 if (test12 == false)
 {
-    cout << "Test 12: Makes sure leaderboard.txt file still has data" << endl;
+    cout << "Test 12: Makes sure leaderboard.txt file still has data" << endl; // Test 12 
     if (scoreArray[0] != "")
     {
-        cout << "TEST PASSED" << endl << endl;
+        cout << "TEST PASSED" << endl << endl; // Checking to make sure the external txt file has data 
     }
     else
     {
-        cout << "TEST FAILED" << endl << endl;
+        cout << "TEST FAILED" << endl << endl; // Passes if no empty strings in array, fails if empty strings are found
     }
     test12 = true;
   }
@@ -318,13 +377,17 @@ if (test12 == false)
 
             display.window.display();
 
-            if (display.window.isOpen())
+            if (display.window.isOpen()) 
             {
                 Event e;
                 int i = 0;
                 int check = 0;
                 char random;
                 // Checks for any input from user and it send it to event handler
+
+                /**
+                Recording user imput from Game window after a high score has been achieved.           
+                **/
                 while (display.window.pollEvent(e) || check == 0)
                 {
                     //string alphabet[26] = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" };
@@ -453,7 +516,7 @@ if (test12 == false)
         //
         //
 
-    if (stoi(score) > stoi(scoreArray[4]))
+    if (stoi(score) > stoi(scoreArray[4])) // Test to make sure new highscores are recoded in the arrays. 
     {
         scoreArray[4] = score;
         initialArray[4] = initial;
@@ -487,7 +550,7 @@ if (test12 == false)
         }
     }
 
-    Text title("LEADERBOARD", font1, 60);
+    Text title("LEADERBOARD", font1, 60); // Displaying the Highscores on the Game window 
     title.setPosition(400, 100);
     Text header("SCORE              NAME", font1, 25);
     header.setPosition(400, 300);
@@ -513,7 +576,7 @@ if (test12 == false)
     display.window.draw(fifth);
     display.window.display();
 
-    ofstream write("Leaderboard.txt");
+    ofstream write("Leaderboard.txt"); //Writing new HighScores to the Leaderboard txt.
     if (write.is_open())
     {
         for (int i = 0; i < 5; i++)
@@ -545,6 +608,19 @@ if (test12 == false)
     }
 }
 
+
+/*
+Function to draw a new screen with that resets the game level and objects for level 2
+
+@class display.window
+
+@param player
+
+@returns int 
+
+Function continues game if player passes level one, It generates new vectors for enemies and continues the game with same rules.
+
+*/
 int levelTwo(Player& p) {
   bool test11 = false;
   bool test12 = false;
@@ -558,7 +634,7 @@ int levelTwo(Player& p) {
         Texture scoreLogo;
         Sprite scoreSprite;
 
-        if (!scoreLogo.loadFromFile("score.png"))
+        if (!scoreLogo.loadFromFile("score.png")) //Error condition for load fail
         {
             return -1;
         }
@@ -568,7 +644,7 @@ int levelTwo(Player& p) {
         Texture livesTexture;
         vector<Sprite> lives;
 
-        if (!livesTexture.loadFromFile("galagaShip.png"))
+        if (!livesTexture.loadFromFile("galagaShip.png")) //Error condition for load fail
         {
             return -1;
         }
@@ -576,7 +652,7 @@ int levelTwo(Player& p) {
         Text score;
         Font font;
 
-        if (!font.loadFromFile("Dream MMA.ttf"))
+        if (!font.loadFromFile("Dream MMA.ttf")) // Error condition for load fail
         {
             return -1;
         }
@@ -586,7 +662,7 @@ int levelTwo(Player& p) {
         score.setPosition(125, 690);
         display.window.clear();
 
-        if (!music.openFromFile("GalagaTheme.ogg"))
+        if (!music.openFromFile("GalagaTheme.ogg")) //Error condition for load fail
         {
             return -1; // error
         }
@@ -595,7 +671,7 @@ int levelTwo(Player& p) {
         music.stop();
         LevelDisplay(2);
 
-        vector<Enemy> enemies;
+        vector<Enemy> enemies; // Creating a vector of enemies 
 
         for (int i = 0; i < 30; i++)
         {
@@ -636,7 +712,7 @@ int levelTwo(Player& p) {
                         check = 0;
                         check1 = 0;
                         activeGame = false;
-                        cout << "Test 9: Tests if pressing ESC closes the program" << endl;
+                        cout << "Test 9: Tests if pressing ESC closes the program" << endl; // Test to make sure the programs exit conditon of 'esc' works
                         if (display.window.isOpen() == false)
                         {
                             cout << "TEST PASSED" << endl << endl;
@@ -658,7 +734,7 @@ int levelTwo(Player& p) {
                 }
                 if (p.gameOver())
                 {
-                    cout << "Test 15: Checks if the game ends if the player runs out of lives" << endl;
+                    cout << "Test 15: Checks if the game ends if the player runs out of lives" << endl; // Test that makes sure that the game ends when the player loses all his lives
                     check1 = 0;
                     if (check1 == 0)
                     {
@@ -787,6 +863,18 @@ int levelTwo(Player& p) {
     return 0;
 }
 
+/*
+Function to draw a new screen with that resets the game level and objects for level 1
+
+@class display.window
+
+@param bool
+
+@returns int
+
+Function starts the game and creates objects to interact with
+
+*/
 int levelOne(bool &test13)
 {
   bool test7 = false;
@@ -803,7 +891,7 @@ int levelOne(bool &test13)
     Texture scoreLogo;
     Sprite scoreSprite;
 
-    if (!scoreLogo.loadFromFile("score.png"))
+    if (!scoreLogo.loadFromFile("score.png")) //Error handling incase png load fails
     {
         return -1;
     }
@@ -813,7 +901,7 @@ int levelOne(bool &test13)
     Texture livesTexture;
     vector<Sprite> lives;
 
-    if (!livesTexture.loadFromFile("galagaShip.png"))
+    if (!livesTexture.loadFromFile("galagaShip.png")) //Error condition in case png load fails
     {
         return -1;
     }
@@ -821,7 +909,7 @@ int levelOne(bool &test13)
     Text score;
     Font font;
 
-    if (!font.loadFromFile("Dream MMA.ttf"))
+    if (!font.loadFromFile("Dream MMA.ttf")) //Error condition for font load fail
     {
         return -1;
     }
@@ -831,7 +919,7 @@ int levelOne(bool &test13)
     score.setPosition(125, 690);
     display.window.clear();
 
-    if (!music.openFromFile("GalagaTheme.ogg"))
+    if (!music.openFromFile("GalagaTheme.ogg")) //Error condition for sound file load fail
     {
          return -1; // error
     }
@@ -840,7 +928,7 @@ int levelOne(bool &test13)
     StartScreen();
     if (test13 == false)
     {
-      cout << "Test 13: Makes sure the user can exit the start screen" << endl;
+      cout << "Test 13: Makes sure the user can exit the start screen" << endl; // Test to ensure that the user can exit the start screen
       cout << "TEST PASSED" << endl << endl;
     }
     test13 = true;
@@ -885,7 +973,7 @@ int levelOne(bool &test13)
                      p.Shoot();
                      if (test8 == false)
                      {
-                       cout << "Test 8: Tests the shooting mechanic of the game if the user presses space" << endl;
+                       cout << "Test 8: Tests the shooting mechanic of the game if the user presses space" << endl; // TEst to make sure that the ship is firing when there is a space input
                        if (size < p.getProjectiles().size())
                        {
                            cout << "TEST PASSED" << endl << endl;
@@ -898,7 +986,7 @@ int levelOne(bool &test13)
                        }
                      }
 
-                     if (!music.openFromFile("Laser.ogg"))
+                     if (!music.openFromFile("Laser.ogg")) // Error condition in case sound load fails
                      {
                        return -1; // error
                       }
@@ -910,7 +998,7 @@ int levelOne(bool &test13)
                          check = 0;
                          check1 = 0;
                          activeGame = false;
-                         cout << "Test 9: Tests if pressing ESC closes the program" << endl;
+                         cout << "Test 9: Tests if pressing ESC closes the program" << endl; // Test 9 check if ESC exits the program
                          if (display.window.isOpen() == false)
                          {
                              cout << "TEST PASSED" << endl << endl;
@@ -932,7 +1020,7 @@ int levelOne(bool &test13)
              }
              if (p.gameOver())
              {
-                 cout << "Test 15: Checks if the game ends if the player runs out of lives" << endl;
+                 cout << "Test 15: Checks if the game ends if the player runs out of lives" << endl; // Test to make sure the game is over when player runs out of lives
                  check1 = 0;
                  if (check1 == 0)
                  {
@@ -947,7 +1035,7 @@ int levelOne(bool &test13)
              }
              if (enemies.size() == 0)
              {
-                 cout << "Test 16: Checks if the game ends if the player destroys all enemies" << endl;
+                 cout << "Test 16: Checks if the game ends if the player destroys all enemies" << endl; // Test to make sure game ends with no enemies on the board
                  check1 = 0;
                  check = 0;
                  cout << "TEST PASSED" << endl << endl;

@@ -80,7 +80,7 @@ class Player
 		bool checkCollison(Enemy&);
 
 		/**
-		* Returns the score of the player
+		* Returns the score of the player & make the relive place diff
 		* @parm Nothing
 		* @parm int - Returns the value of the player's score
 		**/
