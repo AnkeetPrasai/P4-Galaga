@@ -30,6 +30,7 @@ Brandon Lefert:
 12 hr total
 
 Hu Tang:
-4/8: 1 hr - Project 4 Pre-Planning Meeting
-
-hr total
+4/8: 1 hr - Project 4 Pre-Planning Meeting4/
+4/23 8 hrs - death three time bugs fix and the boundery limited for plaers. (2 hrs figure out the bugs)
+4/21 1 hrs - interger for teams 
+10 hr total
